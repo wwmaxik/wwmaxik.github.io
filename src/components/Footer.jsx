@@ -4,15 +4,15 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-16 px-4 border-t border-white/[0.05]">
+    <footer className="py-16 px-4 border-t border-slate-200">
       <div className="max-w-4xl mx-auto text-center">
         {/* CTA */}
         <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
             Опишите вашу задачу, и я скажу{' '}
             <span className="gradient-text-accent">цену и сроки уже сегодня</span>
           </h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-slate-600 mb-6">
             Консультация бесплатна. Отвечаю в течение часа.
           </p>
           <a
@@ -28,7 +28,7 @@ function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-8" />
 
         {/* Contact Links */}
         <div className="flex justify-center gap-6 mb-8">
@@ -37,7 +37,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Telegram"
-            className="flex items-center gap-2 text-gray-300 hover:text-neon-green transition-colors"
+            className="flex items-center gap-2 text-slate-600 hover:text-indigo-600 transition-colors"
           >
             <MessageCircle size={20} />
             <span>Telegram</span>
@@ -47,7 +47,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="flex items-center gap-2 text-gray-300 hover:text-neon-purple transition-colors"
+            className="flex items-center gap-2 text-slate-600 hover:text-indigo-600 transition-colors"
           >
             <Github size={20} />
             <span>GitHub</span>
@@ -55,7 +55,7 @@ function Footer() {
           <a
             href="mailto:hello@example.com"
             aria-label="Email"
-            className="flex items-center gap-2 text-gray-300 hover:text-neon-purple transition-colors"
+            className="flex items-center gap-2 text-slate-600 hover:text-indigo-600 transition-colors"
           >
             <Mail size={20} />
             <span>Email</span>
@@ -63,7 +63,7 @@ function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-gray-500 text-sm">
+        <div className="text-slate-400 text-sm">
           <p>&copy; {currentYear} Самозанятый разработчик. Работаю по договору НПД.</p>
         </div>
       </div>

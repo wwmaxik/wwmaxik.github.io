@@ -11,7 +11,7 @@ function CaseStudy() {
   const techStack = ['React', 'Node.js', 'REST API', 'Docker']
 
   return (
-    <section className="py-32 px-4">
+    <section className="py-24 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -23,14 +23,11 @@ function CaseStudy() {
           </p>
         </div>
 
-        {/* Case Study Card - Glassmorphism */}
-        <div className="glass-card border border-white/[0.08] rounded-2xl p-6 md:p-10 lg:p-12 relative overflow-hidden">
-          {/* Background accent */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/5 rounded-full blur-3xl pointer-events-none" />
-
+        {/* Case Study Card - White with shadow */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-10 lg:p-12 shadow-sm">
           <div className="relative z-10">
             {/* Main Description */}
-            <p className="text-lg text-gray-200 mb-8 leading-relaxed">
+            <p className="text-lg text-slate-700 mb-8 leading-relaxed">
               С нуля разработан интернет-магазин. Настроен вебхук оплаты через ЮMoney. 
               При успешной транзакции система автоматически дергает API СДЭК, 
               генерирует трек-номер и накладную. Серверная часть работает стабильно 
@@ -41,19 +38,19 @@ function CaseStudy() {
             <div className="grid md:grid-cols-2 gap-3 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <CheckCircle className="text-neon-green flex-shrink-0" size={20} />
-                  <span className="text-gray-200">{feature}</span>
+                  <CheckCircle className="text-emerald-600 flex-shrink-0" size={20} />
+                  <span className="text-slate-700">{feature}</span>
                 </div>
               ))}
             </div>
 
             {/* Tech Stack */}
             <div className="flex flex-wrap gap-2 mb-8">
-              <span className="text-gray-400 mr-2 font-mono">Стек:</span>
+              <span className="text-slate-500 mr-2 font-mono">Стек:</span>
               {techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm rounded-md bg-white/[0.05] text-neon-purple border border-white/[0.08] font-mono"
+                  className="px-3 py-1 text-sm rounded-md bg-slate-100 text-indigo-600 border border-slate-200 font-mono"
                 >
                   {tech}
                 </span>
@@ -77,7 +74,7 @@ function CaseStudy() {
         </div>
 
         {/* Additional Info */}
-        <p className="text-center text-gray-400 mt-8 text-sm">
+        <p className="text-center text-slate-500 mt-8 text-sm">
           Есть и другие кейсы. Обсудим на консультации.
         </p>
       </div>

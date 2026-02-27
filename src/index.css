@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-[#030303] text-gray-100;
+    @apply bg-slate-50 text-slate-900;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,59 +22,53 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3.5 min-h-[48px] bg-neon-purple text-white font-semibold rounded-xl 
-           transition-all duration-300 hover:bg-neon-purpleHover 
-           hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]
-           backdrop-blur-sm
-           focus:ring-2 focus:ring-neon-purple focus:ring-offset-2 focus:ring-offset-[#030303];
+    @apply px-6 py-3.5 min-h-[48px] bg-indigo-600 text-white font-semibold rounded-xl 
+           transition-all duration-300 hover:bg-indigo-700 
+           hover:shadow-lg hover:shadow-indigo-600/20
+           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-slate-50;
   }
   
   .btn-secondary {
-    @apply px-6 py-3.5 min-h-[48px] border-2 border-neon-green text-neon-green font-semibold 
-           rounded-xl transition-all duration-300 hover:bg-neon-green 
-           hover:text-dark-900 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]
-           backdrop-blur-sm
-           focus:ring-2 focus:ring-neon-green focus:ring-offset-2 focus:ring-offset-[#030303];
+    @apply px-6 py-3.5 min-h-[48px] border-2 border-slate-300 text-slate-600 font-semibold 
+           rounded-xl transition-all duration-300 hover:bg-slate-100 
+           hover:border-slate-400 hover:text-slate-900
+           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-slate-50;
   }
   
   .card {
-    @apply bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm rounded-xl p-6 md:p-8
-           transition-all duration-300 hover:border-white/[0.15] 
-           hover:bg-white/[0.05]
-           hover:shadow-[0_0_40px_rgba(168,85,247,0.1)];
+    @apply bg-white border border-slate-200 rounded-xl p-6 md:p-8
+           transition-all duration-300 hover:shadow-md;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold text-center mb-4 tracking-tight;
+    @apply text-3xl md:text-4xl font-bold text-center mb-4 tracking-tight text-slate-900;
   }
   
   .section-subtitle {
-    @apply text-gray-300 text-center mb-12 max-w-2xl mx-auto leading-relaxed;
+    @apply text-slate-600 text-center mb-12 max-w-2xl mx-auto leading-relaxed;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-white via-gray-200 to-white/40 bg-clip-text text-transparent;
+    @apply text-indigo-600;
   }
   
   .gradient-text-accent {
-    @apply bg-gradient-to-r from-neon-purple via-purple-400 to-neon-green bg-clip-text text-transparent;
+    @apply text-indigo-600;
   }
   
   .neon-border {
-    @apply border border-white/[0.1] rounded-xl;
+    @apply border border-slate-200 rounded-xl;
   }
   
-  /* Bento grid card */
+  /* Bento grid card - Light Mode */
   .bento-card {
-    @apply bg-white/[0.03] border border-white/[0.08] rounded-xl p-4 md:p-6
-           transition-all duration-300 hover:border-white/[0.15]
-           hover:bg-white/[0.05];
+    @apply bg-white border border-slate-200 rounded-xl p-4 md:p-6
+           transition-all duration-300 hover:shadow-sm;
   }
   
-  /* Glass card for services */
+  /* Glass card for services - Light Mode */
   .glass-card {
-    @apply bg-gradient-to-b from-white/[0.05] to-white/[0.02] 
-           border border-white/[0.08] backdrop-blur-md rounded-xl
-           transition-all duration-500;
+    @apply bg-white border border-slate-200 rounded-2xl
+           transition-all duration-500 hover:shadow-md;
   }
 }

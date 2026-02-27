@@ -23,9 +23,9 @@ function Services() {
   ]
 
   return (
-    <section id="services" className="py-32 px-4">
-      <div className="max-w-auto">
-        {/*-6xl mx Section Header */}
+    <section id="services" className="py-24 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="section-title">
             <span className="gradient-text-accent">Услуги</span>
@@ -35,22 +35,22 @@ function Services() {
           </p>
         </div>
 
-        {/* Services Grid - Glassmorphism */}
+        {/* Services Grid - White cards */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <div key={index} className="glass-card group p-6 md:p-8 hover:border-white/[0.15]">
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-white/[0.05] flex items-center justify-center mb-5 group-hover:bg-neon-purple/20 transition-all duration-500">
-                <service.icon className="text-neon-purple" size={28} />
+            <div key={index} className="card group hover:-translate-y-1">
+              {/* Icon - Indigo */}
+              <div className="w-14 h-14 rounded-xl bg-indigo-50 flex items-center justify-center mb-5 group-hover:bg-indigo-100 transition-colors">
+                <service.icon className="text-indigo-600" size={28} />
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-neon-purple transition-colors duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-slate-900 group-hover:text-indigo-600 transition-colors">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-300 mb-4 leading-relaxed">
+              <p className="text-slate-600 mb-4 leading-relaxed">
                 {service.description}
               </p>
 
@@ -59,7 +59,7 @@ function Services() {
                 {service.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="px-2.5 py-1 text-xs rounded-md bg-white/[0.05] text-gray-300 border border-white/[0.08] font-mono"
+                    className="px-2.5 py-1 text-xs rounded-md bg-slate-100 text-slate-600 border border-slate-200 font-mono"
                   >
                     {tag}
                   </span>
@@ -70,21 +70,21 @@ function Services() {
         </div>
 
         {/* Advantages */}
-        <div className="mt-20 grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
           <div className="text-center p-6">
             <div className="text-4xl mb-3">📋</div>
-            <h4 className="font-semibold text-white mb-2">По договору (НПД)</h4>
-            <p className="text-sm text-gray-300">Работаю официально как самозанятый. Без налоговых рисков для бизнеса.</p>
+            <h4 className="font-semibold text-slate-900 mb-2">По договору (НПД)</h4>
+            <p className="text-sm text-slate-600">Работаю официально как самозанятый. Без налоговых рисков для бизнеса.</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-3">⚡</div>
-            <h4 className="font-semibold text-white mb-2">Скорость</h4>
-            <p className="text-sm text-gray-300">Использую ИИ-агенты в пайплайне. Рабочий MVP за сутки.</p>
+            <h4 className="font-semibold text-slate-900 mb-2">Скорость</h4>
+            <p className="text-sm text-slate-600">Использую ИИ-агенты в пайплайне. Рабочий MVP за сутки.</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-3">🛡️</div>
-            <h4 className="font-semibold text-white mb-2">Надежность</h4>
-            <p className="text-sm text-gray-300">Сам настраиваю сервера и CI/CD. Отдаю готовый продукт.</p>
+            <h4 className="font-semibold text-slate-900 mb-2">Надежность</h4>
+            <p className="text-sm text-slate-600">Сам настраиваю сервера и CI/CD. Отдаю готовый продукт.</p>
           </div>
         </div>
       </div>
