@@ -8,10 +8,10 @@ export default {
     extend: {
       colors: {
         dark: {
-          900: '#0a0a0f',
-          800: '#12121a',
-          700: '#1a1a25',
-          600: '#252532',
+          900: '#030303',
+          800: '#0a0a0a',
+          700: '#121212',
+          600: '#1a1a1a',
         },
         neon: {
           purple: '#a855f7',
@@ -22,6 +22,10 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      backgroundImage: {
+        'radial-hero': 'radial-gradient(circle at center, #1a1a2e 0%, #030303 70%)',
       },
       animation: {
         'glow-purple': 'glow-purple 2s ease-in-out infinite alternate',

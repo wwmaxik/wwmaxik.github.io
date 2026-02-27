@@ -4,13 +4,13 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-16 px-4 bg-dark-800/30 border-t border-dark-700">
+    <footer className="py-16 px-4 border-t border-white/[0.05]">
       <div className="max-w-4xl mx-auto text-center">
         {/* CTA */}
         <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4">
             Опишите вашу задачу, и я скажу{' '}
-            <span className="gradient-text">цену и сроки уже сегодня</span>
+            <span className="gradient-text-accent">цену и сроки уже сегодня</span>
           </h2>
           <p className="text-gray-300 mb-6">
             Консультация бесплатна. Отвечаю в течение часа.
@@ -28,7 +28,7 @@ function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-dark-700 to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-8" />
 
         {/* Contact Links */}
         <div className="flex justify-center gap-6 mb-8">
@@ -63,7 +63,7 @@ function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-gray-600 text-sm">
+        <div className="text-gray-500 text-sm">
           <p>&copy; {currentYear} Самозанятый разработчик. Работаю по договору НПД.</p>
         </div>
       </div>
