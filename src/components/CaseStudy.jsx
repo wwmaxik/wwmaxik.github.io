@@ -11,8 +11,11 @@ function CaseStudy() {
   const techStack = ['React', 'Node.js', 'REST API', 'Docker']
 
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-24 px-4 relative">
+      {/* Background accent */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="section-title">
@@ -23,8 +26,8 @@ function CaseStudy() {
           </p>
         </div>
 
-        {/* Case Study Card - White with shadow */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-10 lg:p-12 shadow-sm">
+        {/* Case Study Card - Glass */}
+        <div className="glass-card p-6 md:p-10 lg:p-12 hover:bg-white/60 transition-all duration-300">
           <div className="relative z-10">
             {/* Main Description */}
             <p className="text-lg text-slate-700 mb-8 leading-relaxed">
@@ -50,7 +53,7 @@ function CaseStudy() {
               {techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm rounded-md bg-slate-100 text-indigo-600 border border-slate-200 font-mono"
+                  className="px-3 py-1 text-sm rounded-md bg-white/50 text-indigo-600 border border-white/30 font-mono"
                 >
                   {tech}
                 </span>

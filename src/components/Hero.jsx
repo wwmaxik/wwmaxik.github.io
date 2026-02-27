@@ -10,17 +10,19 @@ function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center px-4 py-24 relative overflow-hidden">
-      {/* Background - subtle gradient for Light Mode */}
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-50/50 via-transparent to-transparent pointer-events-none" />
+      {/* Background accents - blurred color spots */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-100/20 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 glass-card-round mb-8">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-sm text-slate-600">Доступен для новых проектов</span>
         </div>
 
-        {/* Main Heading - strict, no gradient */}
+        {/* Main Heading */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-slate-900">
           Автоматизация бизнеса,{' '}
           <span className="text-indigo-600">API и боты за 1-3 дня</span>
@@ -32,7 +34,7 @@ function Hero() {
           Работаю официально (самозанятый), закрываю проекты в срок от 24 часов.
         </p>
 
-        {/* CTA Buttons - Light Mode */}
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-16">
           <a
             href="https://t.me/yourusername"
@@ -46,24 +48,24 @@ function Hero() {
           </a>
           <button
             onClick={scrollToCases}
-            className="btn-secondary inline-flex items-center gap-2"
+            className="glass-card btn-secondary inline-flex items-center gap-2"
           >
             <ArrowDown size={20} />
             Смотреть кейсы
           </button>
         </div>
 
-        {/* Stats - White cards with shadow */}
+        {/* Stats - Glass cards with rounded-3xl */}
         <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-lg mx-auto">
-          <div className="bento-card text-center">
+          <div className="glass-card-round text-center p-4 md:p-6">
             <div className="text-2xl md:text-3xl font-bold text-slate-900">50+</div>
             <div className="text-xs md:text-sm text-slate-500 mt-1 font-mono">Проектов</div>
           </div>
-          <div className="bento-card text-center">
+          <div className="glass-card-round text-center p-4 md:p-6">
             <div className="text-2xl md:text-3xl font-bold text-slate-900">1-3</div>
             <div className="text-xs md:text-sm text-slate-500 mt-1 font-mono">Дня срок</div>
           </div>
-          <div className="bento-card text-center">
+          <div className="glass-card-round text-center p-4 md:p-6">
             <div className="text-2xl md:text-3xl font-bold text-slate-900">100%</div>
             <div className="text-xs md:text-sm text-slate-500 mt-1 font-mono">Сдача</div>
           </div>

@@ -4,8 +4,11 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-16 px-4 border-t border-slate-200">
-      <div className="max-w-4xl mx-auto text-center">
+    <footer className="py-16 px-4 border-t border-white/20 relative">
+      {/* Background accent */}
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-indigo-100/30 rounded-full blur-[80px] pointer-events-none" />
+      
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* CTA */}
         <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
@@ -28,7 +31,7 @@ function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent mb-8" />
 
         {/* Contact Links */}
         <div className="flex justify-center gap-6 mb-8">
