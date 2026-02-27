@@ -4,9 +4,9 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-16 px-4 border-t border-white/20 relative">
-      {/* Background accent */}
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-indigo-100/30 rounded-full blur-[80px] pointer-events-none" />
+    <footer className="py-16 px-4 border-t border-white/40 relative bg-slate-50">
+      {/* Background blob */}
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-indigo-400 bg-blob" />
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* CTA */}

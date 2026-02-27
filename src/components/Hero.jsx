@@ -9,11 +9,10 @@ function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center px-4 py-24 relative overflow-hidden">
-      {/* Background accents - blurred color spots */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-100/20 rounded-full blur-[120px] pointer-events-none" />
+    <section className="min-h-screen flex flex-col justify-center items-center px-4 py-24 relative overflow-hidden bg-slate-50">
+      {/* Background blobs - жидкие цветовые пятна */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-400 bg-blob" />
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-400 bg-blob" />
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Badge */}
@@ -22,7 +21,7 @@ function Hero() {
           <span className="text-sm text-slate-600">Доступен для новых проектов</span>
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading - text-slate-900 для контраста */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-slate-900">
           Автоматизация бизнеса,{' '}
           <span className="text-indigo-600">API и боты за 1-3 дня</span>
@@ -48,14 +47,14 @@ function Hero() {
           </a>
           <button
             onClick={scrollToCases}
-            className="glass-card btn-secondary inline-flex items-center gap-2"
+            className="glass-btn btn-secondary inline-flex items-center gap-2 px-6 py-3.5 min-h-[48px]"
           >
             <ArrowDown size={20} />
             Смотреть кейсы
           </button>
         </div>
 
-        {/* Stats - Glass cards with rounded-3xl */}
+        {/* Stats - Glass cards rounded-3xl */}
         <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-lg mx-auto">
           <div className="glass-card-round text-center p-4 md:p-6">
             <div className="text-2xl md:text-3xl font-bold text-slate-900">50+</div>

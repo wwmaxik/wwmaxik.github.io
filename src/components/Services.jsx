@@ -23,10 +23,10 @@ function Services() {
   ]
 
   return (
-    <section id="services" className="py-24 px-4 relative">
-      {/* Background accents for section */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-indigo-100/40 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-purple-100/40 rounded-full blur-[100px] pointer-events-none" />
+    <section id="services" className="py-24 px-4 relative bg-slate-50">
+      {/* Background blobs */}
+      <div className="absolute top-20 right-0 w-72 h-72 bg-indigo-400 bg-blob" />
+      <div className="absolute bottom-20 left-0 w-72 h-72 bg-purple-400 bg-blob" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -42,10 +42,10 @@ function Services() {
         {/* Services Grid - Glass cards */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <div key={index} className="glass-card group p-6 md:p-8 hover:bg-white/60 hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.12)] transition-all duration-300">
-              {/* Icon with gradient */}
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-5">
-                <service.icon className="text-white" size={28} />
+            <div key={index} className="glass-card group p-6 md:p-8 hover:bg-white/60 transition-all duration-300">
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-xl bg-indigo-100 flex items-center justify-center mb-5 group-hover:bg-indigo-200 transition-colors">
+                <service.icon className="text-indigo-600" size={28} />
               </div>
 
               {/* Title */}
@@ -63,7 +63,7 @@ function Services() {
                 {service.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="px-2.5 py-1 text-xs rounded-md bg-white/50 text-slate-600 border border-white/30 font-mono"
+                    className="px-2.5 py-1 text-xs rounded-md bg-white/40 text-slate-600 border border-white/40 font-mono"
                   >
                     {tag}
                   </span>

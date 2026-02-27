@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-[#F8FAFC] text-slate-900;
+    @apply bg-slate-50 text-slate-900;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -24,13 +24,13 @@
     @apply px-6 py-3.5 min-h-[48px] bg-indigo-600 text-white font-semibold rounded-xl 
            transition-all duration-300 hover:bg-indigo-700 
            shadow-lg shadow-indigo-200/50
-           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-[#F8FAFC];
+           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-slate-50;
   }
   
   .btn-secondary {
     @apply px-6 py-3.5 min-h-[48px] text-slate-700 font-semibold rounded-xl 
            transition-all duration-300 hover:bg-white/60
-           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-[#F8FAFC];
+           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-slate-50;
   }
   
   .card {
@@ -53,24 +53,26 @@
     @apply text-indigo-600;
   }
   
-  /* Glass Card - Liquid Glass Effect */
+  /* Glass Card - Эффект стекла */
   .glass-card {
-    @apply bg-white/40 backdrop-blur-xl border border-white/20 
-           shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-2xl;
+    @apply bg-white/40 backdrop-blur-md border border-white/40 
+           shadow-xl shadow-slate-200/50 rounded-2xl;
   }
   
-  /* Rounded-3xl for stats */
+  /* Glass Card Round - для статистики */
   .glass-card-round {
-    @apply bg-white/40 backdrop-blur-xl border border-white/20 
-           shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-3xl;
+    @apply bg-white/40 backdrop-blur-md border border-white/40 
+           shadow-xl shadow-slate-200/50 rounded-3xl;
   }
   
-  /* Icon with gradient */
-  .icon-gradient {
-    @apply bg-gradient-to-br from-indigo-500 to-purple-500 bg-clip-text text-transparent;
+  /* Glass Button - вторая кнопка */
+  .glass-btn {
+    @apply bg-white/40 backdrop-blur-md border border-white/40 
+           shadow-xl shadow-slate-200/50 rounded-xl;
   }
   
-  .icon-gradient-color {
-    @apply text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-purple-500;
+  /* Background blobs */
+  .bg-blob {
+    @apply absolute rounded-full blur-[100px] opacity-20 pointer-events-none;
   }
 }

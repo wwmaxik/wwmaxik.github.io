@@ -11,9 +11,9 @@ function CaseStudy() {
   const techStack = ['React', 'Node.js', 'REST API', 'Docker']
 
   return (
-    <section className="py-24 px-4 relative">
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 px-4 relative bg-slate-50">
+      {/* Background blobs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-400 bg-blob" />
       
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
@@ -53,7 +53,7 @@ function CaseStudy() {
               {techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm rounded-md bg-white/50 text-indigo-600 border border-white/30 font-mono"
+                  className="px-3 py-1 text-sm rounded-md bg-white/40 text-indigo-600 border border-white/40 font-mono"
                 >
                   {tech}
                 </span>
