@@ -12,13 +12,14 @@ function Footer() {
             Опишите вашу задачу, и я скажу{' '}
             <span className="gradient-text">цену и сроки уже сегодня</span>
           </h2>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-300 mb-6">
             Консультация бесплатна. Отвечаю в течение часа.
           </p>
           <a
             href="https://t.me/yourusername"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Написать в Telegram"
             className="btn-primary inline-flex items-center gap-2"
           >
             <Send size={18} />
@@ -35,7 +36,8 @@ function Footer() {
             href="https://t.me/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-400 hover:text-neon-green transition-colors"
+            aria-label="Telegram"
+            className="flex items-center gap-2 text-gray-300 hover:text-neon-green transition-colors"
           >
             <MessageCircle size={20} />
             <span>Telegram</span>
@@ -44,14 +46,16 @@ function Footer() {
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-400 hover:text-neon-purple transition-colors"
+            aria-label="GitHub"
+            className="flex items-center gap-2 text-gray-300 hover:text-neon-purple transition-colors"
           >
             <Github size={20} />
             <span>GitHub</span>
           </a>
           <a
             href="mailto:hello@example.com"
-            className="flex items-center gap-2 text-gray-400 hover:text-neon-purple transition-colors"
+            aria-label="Email"
+            className="flex items-center gap-2 text-gray-300 hover:text-neon-purple transition-colors"
           >
             <Mail size={20} />
             <span>Email</span>

@@ -27,17 +27,18 @@ function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
           Разрабатываю быстрые IT-решения для малого бизнеса. 
           Работаю официально (самозанятый), закрываю проекты в срок от 24 часов.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           <a
             href="https://t.me/yourusername"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Обсудить проект в Telegram"
             className="btn-primary inline-flex items-center gap-2"
           >
             <MessageCircle size={20} />
@@ -53,18 +54,18 @@ function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto">
+        <div className="mt-16 grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto">
           <div className="text-center">
             <div className="text-3xl font-bold text-neon-purple">50+</div>
-            <div className="text-sm text-gray-500 mt-1">Проектов</div>
+            <div className="text-sm text-gray-400 mt-1">Проектов</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-neon-green">1-3</div>
-            <div className="text-sm text-gray-500 mt-1">Дня срок</div>
+            <div className="text-sm text-gray-400 mt-1">Дня срок</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-neon-purple">100%</div>
-            <div className="text-sm text-gray-500 mt-1">Сдача</div>
+            <div className="text-sm text-gray-400 mt-1">Сдача</div>
           </div>
         </div>
       </div>

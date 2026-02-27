@@ -23,7 +23,7 @@ function Services() {
   ]
 
   return (
-    <section id="services" className="py-20 px-4 bg-dark-800/50">
+    <section id="services" className="py-24 px-4 bg-dark-800/50">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -36,12 +36,12 @@ function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="card group">
+            <div key={index} className="card group p-8">
               {/* Icon */}
-              <div className="w-12 h-12 rounded-lg bg-neon-purple/10 flex items-center justify-center mb-4 group-hover:bg-neon-purple/20 transition-colors">
-                <service.icon className="text-neon-purple" size={24} />
+              <div className="w-14 h-14 rounded-lg bg-neon-purple/10 flex items-center justify-center mb-4 group-hover:bg-neon-purple/20 transition-colors">
+                <service.icon className="text-neon-purple" size={28} />
               </div>
 
               {/* Title */}
@@ -50,7 +50,7 @@ function Services() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 {service.description}
               </p>
 
@@ -70,21 +70,21 @@ function Services() {
         </div>
 
         {/* Advantages */}
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
+        <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="text-center p-6">
             <div className="text-4xl mb-3">📋</div>
             <h4 className="font-semibold text-white mb-2">По договору (НПД)</h4>
-            <p className="text-sm text-gray-500">Работаю официально как самозанятый. Без налоговых рисков для бизнеса.</p>
+            <p className="text-sm text-gray-400">Работаю официально как самозанятый. Без налоговых рисков для бизнеса.</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-3">⚡</div>
             <h4 className="font-semibold text-white mb-2">Скорость</h4>
-            <p className="text-sm text-gray-500">Использую ИИ-агенты в пайплайне. Рабочий MVP за сутки.</p>
+            <p className="text-sm text-gray-400">Использую ИИ-агенты в пайплайне. Рабочий MVP за сутки.</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-3">🛡️</div>
             <h4 className="font-semibold text-white mb-2">Надежность</h4>
-            <p className="text-sm text-gray-500">Сам настраиваю сервера и CI/CD. Отдаю готовый продукт.</p>
+            <p className="text-sm text-gray-400">Сам настраиваю сервера и CI/CD. Отдаю готовый продукт.</p>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ function CaseStudy() {
         </div>
 
         {/* Case Study Card */}
-        <div className="bg-dark-800 border border-neon-purple/30 rounded-2xl p-8 md:p-10 relative overflow-hidden">
+        <div className="bg-dark-800 border border-neon-purple/30 rounded-2xl p-6 md:p-10 lg:p-12 relative overflow-hidden">
           {/* Background accent */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/5 rounded-full blur-3xl pointer-events-none" />
 
