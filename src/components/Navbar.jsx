@@ -30,10 +30,12 @@ function Navbar() {
   const navLinks = [
     { label: 'Услуги', href: '#services' },
     { label: 'Кейсы', href: '#cases' },
+    { label: 'Open Source', href: '#opensource' },
     { label: 'Калькулятор', href: '#estimator' },
     { label: 'Процесс', href: '#workflow' },
     { label: 'Контакты', href: '#contact' },
   ]
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 liquid-glass-nav transition-colors duration-200">

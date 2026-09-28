@@ -1,63 +1,80 @@
-import { Bot, Network, Database, Server, FileText, Sparkles, Check } from 'lucide-react'
+import { Globe, Bot, Cpu, Terminal, Check, Server, ShieldCheck, Sparkles } from 'lucide-react'
 
 function Services() {
   const services = [
     {
+      icon: Globe,
+      category: 'ПРОДАКШЕН ВЕБ-СИСТЕМЫ',
+      title: 'Корпоративные порталы & Веб-приложения',
+      description: 'Разработка современных быстрых веб-платформ для бизнеса под ключ. Реальный кейс в продакшене — портал управляющей компании sferus24.ru.',
+      features: [
+        'SPA на React + Vite с мгновенным откликом (<0.5с)',
+        'Интерактивные кабинеты, формы заявок и диспетчеризация',
+        'Соответствие требованиям стандартов и законодательства',
+        'Полная адаптивность под iOS, Android и десктоп',
+      ],
+      tech: ['React', 'TypeScript', 'FastAPI', 'Tailwind CSS', 'Docker'],
+      highlight: 'Кейс: sferus24.ru',
+    },
+    {
       icon: Bot,
-      category: 'МЕССЕНДЖЕРЫ',
-      title: 'Telegram-боты & Mini Apps',
-      description: 'Автоматизация продаж, поддержки и взаимодействия с клиентами прямо в мессенджере. От легких ботов до полноценных WebApp-приложений.',
+      category: 'ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ & RAG',
+      title: 'Автономные AI-агенты & Векторный поиск',
+      description: 'Создание специализированных AI-систем на базе современных LLM. От умных Telegram-ботов с RAG-поиском по базе знаний до автономных агентов.',
       features: [
-        'Прием оплаты через Telegram Stars / ЮKassa',
-        'Интеграция с LLM и базами знаний компании',
-        'Интерактивный UI каталога (Telegram Mini App)',
-        'Авторизация и роли пользователей (Admin, Manager, Client)',
+        'Векторный поиск по архивам и документам (как в Total Recall)',
+        'Интеграция Gemini, Claude, OpenAI и локальных моделей',
+        'Мультиагентные пайплайны принятия решений (VoidAgent)',
+        'Голосовые ассистенты (распознавание Vosk + синтез Silero)',
       ],
-      tech: ['Python / aiogram', 'Node.js', 'Telegram WebApp', 'Redis'],
+      tech: ['Python', 'Gemini API', 'ChromaDB', 'PyTorch', 'aiogram'],
+      highlight: 'Проекты: VoidAgent, Total Recall',
     },
     {
-      icon: Network,
-      category: 'ИНТЕГРАЦИИ',
-      title: 'API, Эквайринг & Логистика',
-      description: 'Связываю ваши сайты, склады и службы доставки в единый автоматизированный конвейер. Исключаю ошибки ручного переноса данных.',
+      icon: Cpu,
+      category: 'СИСТЕМНАЯ РАЗРАБОТКА НА RUST',
+      title: 'Высокопроизводительные GUI & Системные утилиты',
+      description: 'Разработка легких нативных десктопных приложений без прожорливого Electron. Опыт создания интерфейсов и системного софта под Linux Wayland.',
       features: [
-        'Платежные шлюзы: ЮKassa, Robokassa, ЮMoney',
-        'Автоматический вызов API СДЭК и печать накладных',
-        'Синхронизация с CRM (amoCRM, МойСклад, Битрикс24)',
-        'Идемпотентная обработка вебхуков без дублей',
+        'Графические интерфейсы на Rust + Iced (driftwm-settings, 14 ★)',
+        'Жестовая навигация и Circle-to-Search с Gemini Vision (driftglide)',
+        'Мгновенный холодный старт и потребление памяти до 20 МБ',
+        'Интеграция с системными шинами IPC и протоколами Wayland',
       ],
-      tech: ['REST API', 'Webhooks', 'FastAPI', 'PostgreSQL'],
+      tech: ['Rust', 'Iced 0.13', 'Wayland', 'Linux IPC', 'Smithay'],
+      highlight: '14 ★ на GitHub: driftwm-settings',
     },
     {
-      icon: Database,
-      category: 'ДАННЫЕ',
-      title: 'Парсеры & Мониторинг рынка',
-      description: 'Автоматический сбор информации с сайтов, маркетплейсов и сервисов. Сберегает десятки часов монотонной работы сотрудников.',
+      icon: Terminal,
+      category: 'МЕССЕНДЖЕРЫ & ИНТЕГРАЦИИ',
+      title: 'Telegram-боты & Автоматизация рутины',
+      description: 'Боты для закрытых клубов, платных подписок (AeroNet), модерации каналов (AnonBot), парсинга маркетплейсов и связки со службами доставки.',
       features: [
-        'Мониторинг изменения цен конкурентов 24/7',
-        'Парсинг номенклатур и выгрузка в Google Sheets / Excel',
-        'Обход Cloudflare / Captcha и ротация прокси',
-        'Оповещения о событиях в закрытый Telegram-канал',
+        'Прием оплаты: ЮKassa, ЮMoney, Telegram Stars',
+        'Автогенерация накладных и трекинг через API СДЭК',
+        'Парсеры данных с обходом блокировок и ротацией прокси',
+        'Развертывание на надежных серверах с Nginx и Systemd',
       ],
-      tech: ['Playwright', 'Scrapy', 'Headless Chrome', 'Cron Workers'],
+      tech: ['Python', 'Node.js', 'Playwright', 'PostgreSQL', 'Redis'],
+      highlight: 'Проекты: AeroNet, AnonBot',
     },
   ]
 
   const guarantees = [
     {
       icon: Server,
-      title: 'Развертывание под ключ',
-      text: 'Настройка VPS, Nginx, Docker-контейнеров, SSL-сертификатов и автоперезапуска при сбоях.',
+      title: 'Развертывание на ваших серверах',
+      text: 'Настройка VPS, Nginx, Docker-контейнеров, SSL-сертификатов и автоперезапуска демонов.',
     },
     {
-      icon: FileText,
-      title: 'Белая отчетность (НПД)',
-      text: 'Работаю как самозанятый по договору. Предоставляю официальные электронные чеки для бухгалтерии.',
+      icon: ShieldCheck,
+      title: 'Официальный договор НПД',
+      text: 'Работаю легально как самозанятый. Предоставляю электронные чеки ФНС для уменьшения налогов бизнеса.',
     },
     {
       icon: Sparkles,
-      title: 'Чистый поддерживаемый код',
-      text: 'Пишу понятный код с типизацией и документацией. Никакого «костыльного» спагетти-кода.',
+      title: 'Глубокая инженерная культура',
+      text: 'Опыт от системного программирования на Rust до прикладного веб-фронтенда и обучения нейросетей.',
     },
   ]
 
@@ -67,18 +84,18 @@ function Services() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="text-xs font-semibold tracking-wider uppercase text-[#0071E3] dark:text-[#2997FF] mb-2 font-mono">
-            Компетенции
+            Направления разработки
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-4">
-            Решения, экономящие сотни часов рутины.
+            Инженерные решения для любых задач.
           </h2>
           <p className="text-base sm:text-lg text-[#6E6E73] dark:text-[#A1A1A6] leading-relaxed">
-            Разрабатываю надежные автономные сервисы. Каждый инструмент создается под конкретные задачи вашего бизнеса с гарантией стабильной работы.
+            От коммерческих корпоративных сайтов до системного программирования на Rust и AI-агентов. Практический опыт, подтвержденный десятками открытых репозиториев и реальными внедрениями.
           </p>
         </div>
 
         {/* Core Services Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {services.map((item, idx) => (
             <div
               key={idx}
@@ -89,12 +106,16 @@ function Services() {
                   <div className="w-12 h-12 rounded-2xl bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] flex items-center justify-center">
                     <item.icon size={24} />
                   </div>
-                  <span className="text-[11px] font-mono tracking-wider text-[#86868B] dark:text-[#86868B] uppercase font-semibold">
-                    {item.category}
+                  <span className="text-[11px] font-mono tracking-wider text-[#0071E3] dark:text-[#2997FF] uppercase font-semibold px-2.5 py-1 rounded-full bg-[#0071E3]/5 dark:bg-[#2997FF]/10">
+                    {item.highlight}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-tight mb-3">
+                <div className="text-[11px] font-mono tracking-wider text-[#86868B] uppercase font-semibold mb-1">
+                  {item.category}
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-tight mb-3">
                   {item.title}
                 </h3>
 
@@ -102,7 +123,7 @@ function Services() {
                   {item.description}
                 </p>
 
-                <ul className="space-y-2.5 mb-8" aria-label={`Возможности услуги ${item.title}`}>
+                <ul className="space-y-2.5 mb-8" aria-label={`Возможности направления ${item.title}`}>
                   {item.features.map((feat, featIdx) => (
                     <li key={featIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#1D1D1F] dark:text-[#E8E8ED]">
                       <Check size={16} className="text-[#34C759] dark:text-[#30D158] flex-shrink-0 mt-0.5" />
@@ -117,7 +138,7 @@ function Services() {
                   {item.tech.map((t, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-black/[0.04] dark:bg-white/[0.06] text-[#6E6E73] dark:text-[#A1A1A6]"
+                      className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-black/[0.04] dark:bg-white/[0.06] text-[#6E6E73] dark:text-[#A1A1A6]"
                     >
                       {t}
                     </span>

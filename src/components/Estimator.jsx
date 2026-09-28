@@ -2,38 +2,38 @@ import { useState, useMemo } from 'react'
 import { Calculator, Clock, CreditCard, Send, CheckCircle, Sparkles } from 'lucide-react'
 
 function Estimator() {
-  const [projectType, setProjectType] = useState('bot')
-  const [selectedAddons, setSelectedAddons] = useState(['payment'])
+  const [projectType, setProjectType] = useState('web')
+  const [selectedAddons, setSelectedAddons] = useState(['deploy'])
   const [isUrgent, setIsUrgent] = useState(false)
 
   const projectTypes = [
     {
-      id: 'bot',
-      name: 'Telegram-бот / WebApp',
-      basePrice: 15000,
+      id: 'web',
+      name: 'Корпоративный веб-портал / SPA',
+      basePrice: 25000,
+      baseDays: 3,
+      desc: 'Современный быстрый сайт под ключ (уровень sferus24.ru)',
+    },
+    {
+      id: 'ai-bot',
+      name: 'Telegram-бот с AI / RAG',
+      basePrice: 18000,
       baseDays: 2,
-      desc: 'Чат-бот с меню, админ-панелью и базой данных',
+      desc: 'Умный бот с базой знаний компании или админ-панелью',
     },
     {
       id: 'integration',
-      name: 'API Интеграция',
-      basePrice: 12000,
+      name: 'API Интеграция (СДЭК, ЮKassa)',
+      basePrice: 14000,
       baseDays: 1,
-      desc: 'Связка эквайринга, доставки СДЭК или CRM-системы',
+      desc: 'Автоматизация логистики, приема оплат и обмена данными',
     },
     {
-      id: 'parser',
-      name: 'Парсер / Скрипт',
-      basePrice: 10000,
-      baseDays: 1,
-      desc: 'Автоматический сбор данных и экспорт в Excel/Sheets',
-    },
-    {
-      id: 'complex',
-      name: 'Комплексный сервис',
-      basePrice: 28000,
-      baseDays: 3,
-      desc: 'Архитектура с вебхуками, очередями и базой данных',
+      id: 'rust-sys',
+      name: 'Системное GUI / Приложение на Rust',
+      basePrice: 35000,
+      baseDays: 5,
+      desc: 'Высокопроизводительное ПО на чистом Rust (как driftwm-settings)',
     },
   ]
 
@@ -47,23 +47,23 @@ function Estimator() {
     },
     {
       id: 'cdek',
-      name: 'Интеграция со СДЭК / Логистикой',
-      detail: 'Автосоздание накладных и трек-номеров',
+      name: 'Интеграция с логистикой СДЭК',
+      detail: 'Автосоздание заказов, накладных и трек-номеров',
       price: 6000,
       days: 0.5,
     },
     {
-      id: 'crm',
-      name: 'Синхронизация с CRM (amoCRM / МойСклад)',
-      detail: 'Автосоздание сделок и учет остатков',
-      price: 5000,
-      days: 0.5,
+      id: 'rag',
+      name: 'Векторная база знаний RAG',
+      detail: 'Поиск и консультирование по документам компании',
+      price: 8000,
+      days: 1,
     },
     {
-      id: 'ai',
-      name: 'ИИ-ассистент с базой знаний (RAG)',
-      detail: 'Консультации клиентов на базе Claude/GPT',
-      price: 8000,
+      id: 'miniapp',
+      name: 'Telegram Mini App (Web UI)',
+      detail: 'Полноценный интерактивный веб-интерфейс внутри чата',
+      price: 7000,
       days: 1,
     },
     {
@@ -104,12 +104,12 @@ function Estimator() {
   const telegramMessage = useMemo(() => {
     const addonNames = selectedAddonObjects.map(a => a.name).join(', ')
     return `Здравствуйте, Максим! Рассчитал предварительную смету на сайте:
-• Тип проекта: ${currentTypeObj.name}
-• Опции: ${addonNames || 'Без доп. опций'}
-• Срочность: ${isUrgent ? 'Срочно (24-48ч)' : 'Стандартный срок'}
-• Расчет: от ${totalPrice.toLocaleString('ru-RU')} ₽ (~${totalDays} ${totalDays === 1 ? 'день' : totalDays < 5 ? 'дня' : 'дней'})
+• Направление: ${currentTypeObj.name}
+• Дополнительные модули: ${addonNames || 'Без доп. модулей'}
+• Срочность: ${isUrgent ? 'Экспресс-MVP (24-48ч)' : 'Стандартный срок'}
+• Ориентировочный расчет: от ${totalPrice.toLocaleString('ru-RU')} ₽ (~${totalDays} ${totalDays === 1 ? 'день' : totalDays < 5 ? 'дня' : 'дней'})
 
-Хочу обсудить ТЗ!`
+Хочу обсудить техническое задание!`
   }, [currentTypeObj, selectedAddonObjects, isUrgent, totalPrice, totalDays])
 
   return (
@@ -121,10 +121,10 @@ function Estimator() {
             Интерактивный расчет
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-4">
-            Калькулятор сроков и стоимости.
+            Калькулятор проекта.
           </h2>
           <p className="text-base sm:text-lg text-[#6E6E73] dark:text-[#A1A1A6]">
-            Выберите параметры вашей задачи. Прозрачные цены без скрытых платежей, официальный расчет по договору НПД.
+            Выберите конфигурацию вашей задачи. Прозрачные цены без скрытых платежей, официальный расчет по договору НПД.
           </p>
         </div>
 
@@ -135,7 +135,7 @@ function Estimator() {
             {/* Step 1: Project Type */}
             <div className="apple-card p-5 sm:p-6">
               <label className="text-xs font-semibold uppercase tracking-wider text-[#86868B] block mb-3 font-mono">
-                1. Тип решения
+                1. Направление разработки
               </label>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {projectTypes.map((pt) => {
@@ -169,7 +169,7 @@ function Estimator() {
             {/* Step 2: Add-ons */}
             <div className="apple-card p-5 sm:p-6">
               <label className="text-xs font-semibold uppercase tracking-wider text-[#86868B] block mb-3 font-mono">
-                2. Дополнительные модули
+                2. Дополнительные модули и интеграции
               </label>
               <div className="space-y-2">
                 {addonsList.map((addon) => {
@@ -306,7 +306,7 @@ function Estimator() {
               </a>
 
               <p className="text-[11px] text-center text-[#86868B] mt-4 leading-relaxed">
-                Точная стоимость фиксируется в договоре после 15-минутного обсуждения деталей задачи.
+                Точная смета фиксируется в официальном договоре после короткого обсуждения деталей.
               </p>
             </div>
           </div>

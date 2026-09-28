@@ -1,93 +1,127 @@
 import { useState } from 'react'
-import { CheckCircle2, ArrowRight, ExternalLink, Terminal, Cpu, Database, Zap } from 'lucide-react'
+import { ExternalLink, Terminal, Globe, Cpu, Bot, Zap, Star } from 'lucide-react'
 
 function CaseStudy() {
   const [activeTab, setActiveTab] = useState(0)
 
   const cases = [
     {
-      id: 'ecommerce',
-      tabTitle: 'E-Commerce + СДЭК + ЮKassa',
-      category: 'ИНТЕГРАЦИЯ ЛОГИСТИКИ И ОПЛАТЫ',
-      title: 'Автоматизация интернет-магазина от оплаты до трек-номера',
-      problem: 'Менеджеры вручную копировали адреса клиентов и создавали накладные в кабинете СДЭК, тратя до 4 часов в день и допуская ошибки в индексах.',
-      solution: 'Разработан легковесный серверный сервис на FastAPI с вебхуками. При успешной оплате заказ моментально регистрируется в СДЭК, создается накладная со штрихкодом, а покупатель получает трек-номер.',
+      id: 'sferus',
+      tabTitle: 'ООО «Сферус» (sferus24.ru)',
+      category: 'КОММЕРЧЕСКИЙ ПРОДАКШЕН • ВЕБ-СИСТЕМА',
+      title: 'Корпоративный портал управляющей компании Красноярска',
+      liveUrl: 'https://sferus24.ru',
+      repoUrl: null,
+      problem: 'Управляющей компании многоквартирными домами требовался современный, быстрый и удобный портал для жильцов: публикация нормативной отчетности (ГИС ЖКХ), регламент аварийной службы, новости об индексации тарифов и диспетчеризация заявок.',
+      solution: 'Спроектировал и разработал легковесный SPA на React + Vite. Реализована интерактивная структура домов под управлением, телефоны круглосуточной аварийной службы, база знаний ЖКУ и адаптивный интерфейс.',
       metrics: [
-        { label: 'Скорость оформления', val: '1.2 сек' },
-        { label: 'Снижение рутины', val: '-95%' },
-        { label: 'Ошибок в адресах', val: '0%' },
+        { label: 'Скорость отклика', val: '<0.4 сек' },
+        { label: 'Стандарты Минстроя', val: '100%' },
+        { label: 'Статус проекта', val: 'В продакшене' },
       ],
-      techStack: ['FastAPI', 'CDEK API v2', 'ЮKassa Webhooks', 'Docker', 'PostgreSQL'],
+      techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Nginx', 'Docker'],
       flow: [
-        { step: '1', title: 'Оплата', desc: 'Клиент оплачивает заказ, ЮKassa шлет подписанный вебхук' },
-        { step: '2', title: 'Идемпотентность', desc: 'Сервис валидирует подпись и исключает дубли' },
-        { step: '3', title: 'API СДЭК', desc: 'Генерация заказа на доставку, расчет тарифа и трек-номера' },
-        { step: '4', title: 'Документы', desc: 'Автосоздание PDF накладной со штрихкодом для склада' },
+        { step: '1', title: 'Проектирование структуры', desc: 'Учет требований законодательства ЖКХ и удобства жителей' },
+        { step: '2', title: 'UI/UX прототип', desc: 'Строгий современный дизайн с высокой контрастностью и читаемостью' },
+        { step: '3', title: 'Оптимизация бандла', desc: 'Минимизация размера скриптов и мгновенная загрузка на смартфонах' },
+        { step: '4', title: 'Деплой в прод', desc: 'Настройка production-окружения на сервере с HTTPS и Nginx' },
       ],
-      terminalSnippet: `POST /api/v1/webhooks/yookassa HTTP/1.1
-Content-Type: application/json
-X-Signature: sha256_verified
+      terminalSnippet: `GET / HTTP/2.0
+Host: sferus24.ru
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0)
 
-{
-  "event": "payment.succeeded",
-  "object": { "id": "pay_98a4c12", "amount": 14900.00 }
-}
+HTTP/2.0 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Encoding: gzip
+Cache-Control: public, max-age=31536000, immutable
 
---> [200 OK] Handled in 42ms
---> Triggering CDEK dispatch order...
---> Generated Track: CDEK-159482034 [PDF Ready]`,
+--> TTFB: 28ms | Total Load: 180ms
+--> Service: ООО «Сферус» Красноярск
+--> Production status: Healthy & Live at https://sferus24.ru`,
     },
     {
-      id: 'bot',
-      tabTitle: 'Telegram AI-Консьерж',
-      category: 'МЕССЕНДЖЕР И ИИ-АССИСТЕНТ',
-      title: 'Умный Telegram-бот с консультацией по 800+ позициям',
-      problem: 'Клиенты писали во внерабочее время и в выходные. До 40% лидов «остывали» до утра, уходя к конкурентам.',
-      solution: 'Бот на aiogram 3 с интеграцией LLM и векторным поиском по каталогу. Отвечает на сложные технические вопросы о товарах, подбирает аналоги и формирует заказ.',
+      id: 'driftwm-settings',
+      tabTitle: 'driftwm-settings (Rust)',
+      category: 'OPEN SOURCE • 14 ЗВЁЗД НА GITHUB',
+      title: 'Быстрая нативная утилита настроек для Wayland на Rust',
+      liveUrl: 'https://github.com/wwmaxik/driftwm-settings',
+      repoUrl: 'https://github.com/wwmaxik/driftwm-settings',
+      problem: 'Пользователям Wayland-композитора driftwm требовался графический центр управления без тяжелых GTK/C зависимостей и с бережным сохранением комментариев в файлах конфигурации.',
+      solution: 'Создал приложение на чистом Rust и фреймворке Iced 0.13 в палитре Catppuccin Mocha. Интегрировал парсер toml_edit для сохранения комментариев и встроенную валидацию driftwm --check-config.',
       metrics: [
-        { label: 'Время ответа', val: '1.8 сек' },
-        { label: 'Конверсия ночью', val: '+38%' },
-        { label: 'Доступность', val: '24/7/365' },
+        { label: 'Звёзд на GitHub', val: '14 ★' },
+        { label: 'Холодный старт', val: '<15 мс' },
+        { label: 'Язык реализации', val: 'Pure Rust' },
       ],
-      techStack: ['Python 3.12', 'aiogram 3', 'OpenAI/Claude API', 'Redis Cache', 'SQLite'],
+      techStack: ['Rust 1.85+', 'Iced 0.13', 'toml_edit', 'Wayland', 'Linux API'],
       flow: [
-        { step: '1', title: 'Запрос', desc: 'Клиент задает вопрос человеческим языком в чате' },
-        { step: '2', title: 'RAG поиск', desc: 'Поиск релевантных спецификаций в локальной базе знаний' },
-        { step: '3', title: 'Генерация', desc: 'Формирование экспертного ответа со ссылкой на покупку' },
-        { step: '4', title: 'Сделка', desc: 'Передача готового заказа в Telegram-чат менеджера' },
+        { step: '1', title: 'Lossless TOML', desc: 'Сохранение комментариев и порядка секций в ~/.config/driftwm/' },
+        { step: '2', title: 'Iced Elm-архитектура', desc: 'Реактивный GUI с нулевыми накладными расходами памяти' },
+        { step: '3', title: 'Живая валидация', desc: 'Проверка синтаксиса и совместимости с driftwm 0.19+' },
+        { step: '4', title: 'Системная интеграция', desc: 'Автозапуск, шейдеры, размытие и привязка к горячим клавишам' },
       ],
-      terminalSnippet: `[Telegram Inbound] UpdateID: 8492010
-User @tech_buyer: "Подберите блок питания на 750W Gold для ITX корпуса"
---> Vector search: found 3 exact matches in catalog
---> Prompt tokens: 412 | Completion tokens: 98 | 1.8s
---> Message sent with interactive checkout keyboard
---> Order #742 created in CRM`,
+      terminalSnippet: `$ git clone https://github.com/wwmaxik/driftwm-settings
+$ cd driftwm-settings && cargo build --release
+   Compiling driftwm-settings v0.5.0 (/home/wwmaxik/driftwm-settings)
+    Finished \`release\` profile [optimized] in 14.2s
+
+$ ./target/release/driftwm-settings
+[INFO] Loaded config from ~/.config/driftwm/config.toml
+[INFO] Syntax valid. Theme: Catppuccin Mocha. Memory: 18.4 MB`,
     },
     {
-      id: 'parser',
-      tabTitle: 'Мониторинг цен & Парсер',
-      category: 'АВТОМАТИЗАЦИЯ И ДАННЫЕ',
-      title: 'Парсер 20,000+ SKU с защитой от блокировок и алертингом',
-      problem: 'Конкуренты часто меняли цены и запускали акции, а ручной мониторинг занимал целые дни и опаздывал на сутки.',
-      solution: 'Высокоскоростной асинхронный парсер с ротацией резидентных прокси. Мониторит ассортимент каждые 15 минут и моментально присылает алерт при демпинге.',
+      id: 'driftglide',
+      tabTitle: 'DriftGlide & AI Vision',
+      category: 'AI & SYSTEM LINUX • WAYLAND',
+      title: 'Circle to Search с Gemini Vision для Linux Wayland',
+      liveUrl: 'https://github.com/wwmaxik/driftglide',
+      repoUrl: 'https://github.com/wwmaxik/driftglide',
+      problem: 'На рабочем столе Linux отсутствовал нативный аналог мобильного Circle to Search для быстрого визуального поиска и анализа содержимого экрана с помощью ИИ.',
+      solution: 'Разработал панель навигации жестов и оверлей на Rust под wlr-layer-shell. Выделенный регион экрана мгновенно отправляется в Google Gemini Vision API с выводом интерактивного ответа в плавающем окне.',
       metrics: [
-        { label: 'Объем мониторинга', val: '20,000 SKU' },
-        { label: 'Частота сканирования', val: '15 минут' },
-        { label: 'Успешность запросов', val: '99.4%' },
+        { label: 'Время анализа ИИ', val: '~1.5 сек' },
+        { label: 'Протокол', val: 'Wayland' },
+        { label: 'AI Модель', val: 'Gemini Vision' },
       ],
-      techStack: ['Playwright', 'Scrapy', 'Proxy Mesh', 'Telegram Bot API', 'Google Sheets API'],
+      techStack: ['Rust', 'wlr-layer-shell', 'Google Gemini API', 'grim', 'wl-clipboard'],
       flow: [
-        { step: '1', title: 'Планировщик', desc: 'CRON-задача запускает параллельные очереди воркеров' },
-        { step: '2', title: 'Сбор', desc: 'Headless браузер с обходом защиты Cloudflare и анти-бот капчи' },
-        { step: '3', title: 'Сравнение', desc: 'Вычисление дельты цен и сравнение с правилами маржи' },
-        { step: '4', title: 'Алерт', desc: 'Срочное уведомление в закрытый канал руководства' },
+        { step: '1', title: 'Захват области', desc: 'Мгновенный снимок выбранного фрагмента экрана без сохранения на диск' },
+        { step: '2', title: 'Vision пайплайн', desc: 'Мультимодальная передача в Gemini 3.5 Flash Lite API' },
+        { step: '3', title: 'Контекстный UI', desc: 'Отображение решения с форматированием Markdown, формулами и кодом' },
+        { step: '4', title: '1-click copy', desc: 'Копирование результата в буфер обмена Wayland' },
       ],
-      terminalSnippet: `[CRON Daemon] Job #parse-cycle-15m triggered
-Workers active: 16 | Proxy pool latency: 85ms
---> 20,410 items checked across 4 marketplaces
---> Discrepancy detected: SKU #48911 -18% below min margin
---> Alert dispatched to TG #pricing-alerts
---> Synced 1,240 updated rows to Google Sheets`,
+      terminalSnippet: `[driftglide::ipc] Gesture detected: Hold bottom-center
+[driftglide::capture] Area selected: 820x440 at (400, 320)
+[driftglide::gemini] Sending image payload to Gemini 3.5 Flash Lite...
+[driftglide::gemini] Response received in 1.42s (310 tokens)
+[driftglide::ui] Rendered floating response overlay with syntax highlighting`,
+    },
+    {
+      id: 'ai-agents',
+      tabTitle: 'Telegram AI & VoidAgent',
+      category: 'МУЛЬТИАГЕНТЫ & RAG',
+      title: 'Векторный поиск по Telegram-архивам и автономные агенты',
+      liveUrl: 'https://github.com/wwmaxik/telegram-total-recall',
+      repoUrl: 'https://github.com/wwmaxik/telegram-total-recall',
+      problem: 'В рабочих чатах и каналах теряется критическая информация, а стандартный поиск по точным словам бессилен при синонимах или неточных формулировках.',
+      solution: 'Создал систему Total Recall с векторизацией сообщений через эмбеддинги и поиском по смыслу. Параллельно разработал экспериментальную мультиагентную архитектуру VoidAgent.',
+      metrics: [
+        { label: 'Поиск по 100k записей', val: '<240 мс' },
+        { label: 'Архитектура', val: 'Multi-Agent' },
+        { label: 'Векторный индекс', val: 'ChromaDB' },
+      ],
+      techStack: ['Python 3.12', 'ChromaDB', 'Gemini / Claude API', 'aiogram', 'Redis'],
+      flow: [
+        { step: '1', title: 'Индексация потока', desc: 'Асинхронный сбор сообщений и генерация семантических векторов' },
+        { step: '2', title: 'Векторный RAG', desc: 'Поиск ближайших соседей (kNN) по косинусному расстоянию' },
+        { step: '3', title: 'Реранкинг', desc: 'Отсечение нерелевантного контекста с помощью LLM-классификатора' },
+        { step: '4', title: 'Ответ в Telegram', desc: 'Точная цитата и ссылка на исходное сообщение' },
+      ],
+      terminalSnippet: `[TotalRecall::Daemon] Query: "где мы обсуждали договор на поставку серверов?"
+--> Embedding computed: [0.021, -0.048, 0.119, ... (1536 dim)]
+--> ChromaDB query executed in 21ms (scanned 84,200 chunks)
+--> Match #1 (Score: 0.94): Chat "Ops-2026", 14 Feb 18:22, message_id=4021
+--> Synthesized answer dispatched to user`,
     },
   ]
 
@@ -99,13 +133,13 @@ Workers active: 16 | Proxy pool latency: 85ms
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="text-xs font-semibold tracking-wider uppercase text-[#0071E3] dark:text-[#2997FF] mb-2 font-mono">
-            Реальные кейсы
+            Кейсы и открытый код
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-4">
-            Примеры реализованных решений.
+            Проекты, доведенные до результата.
           </h2>
           <p className="text-base sm:text-lg text-[#6E6E73] dark:text-[#A1A1A6]">
-            От автоматизации логистики до ИИ-консультантов в Telegram. Конкретные цифры, архитектура и доказанный результат.
+            От коммерческого продакшена для бизнеса (<a href="https://sferus24.ru" target="_blank" rel="noopener noreferrer" className="text-[#0071E3] dark:text-[#2997FF] underline">sferus24.ru</a>) до системного софта на Rust с десятками звезд на GitHub.
           </p>
         </div>
 
@@ -145,14 +179,14 @@ Workers active: 16 | Proxy pool latency: 85ms
                 {/* Problem & Solution block */}
                 <div className="space-y-4 mb-8">
                   <div className="p-4 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.04] dark:border-white/[0.06]">
-                    <div className="text-xs font-semibold text-[#86868B] uppercase mb-1">Задача бизнеса</div>
+                    <div className="text-xs font-semibold text-[#86868B] uppercase mb-1">Задача</div>
                     <p className="text-sm text-[#1D1D1F] dark:text-[#E8E8ED] leading-relaxed">
                       {current.problem}
                     </p>
                   </div>
 
                   <div className="p-4 rounded-xl bg-[#0071E3]/5 dark:bg-[#2997FF]/10 border border-[#0071E3]/15 dark:border-[#2997FF]/20">
-                    <div className="text-xs font-semibold text-[#0071E3] dark:text-[#2997FF] uppercase mb-1">Решение инженера</div>
+                    <div className="text-xs font-semibold text-[#0071E3] dark:text-[#2997FF] uppercase mb-1">Решение</div>
                     <p className="text-sm text-[#1D1D1F] dark:text-[#E8E8ED] leading-relaxed">
                       {current.solution}
                     </p>
@@ -163,7 +197,7 @@ Workers active: 16 | Proxy pool latency: 85ms
                 <div className="grid grid-cols-3 gap-3 mb-8">
                   {current.metrics.map((m, idx) => (
                     <div key={idx} className="p-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] text-center">
-                      <div className="text-xl sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] font-mono mb-0.5">
+                      <div className="text-lg sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] font-mono mb-0.5 truncate">
                         {m.val}
                       </div>
                       <div className="text-[11px] text-[#86868B] dark:text-[#86868B] leading-tight">
@@ -187,27 +221,38 @@ Workers active: 16 | Proxy pool latency: 85ms
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div>
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3">
+                {current.liveUrl && (
+                  <a
+                    href={current.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="apple-btn-primary gap-2"
+                  >
+                    <span>{current.id === 'sferus' ? 'Открыть сайт sferus24.ru' : 'Смотреть на GitHub'}</span>
+                    <ExternalLink size={15} />
+                  </a>
+                )}
+
                 <a
-                  href={`https://t.me/wwmaxik?text=${encodeURIComponent(`Здравствуйте, Максим! Меня заинтересовал кейс "${current.title}". Хочу обсудить аналогичную задачу.`)}`}
+                  href={`https://t.me/wwmaxik?text=${encodeURIComponent(`Здравствуйте, Максим! Меня заинтересовал проект "${current.title}". Хочу обсудить аналогичную задачу.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="apple-btn-primary gap-2"
+                  className="apple-btn-secondary gap-2"
                 >
-                  <span>Обсудить похожий проект</span>
-                  <ExternalLink size={15} />
+                  <span>Обсудить в Telegram</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Flow Architecture & macOS Terminal Simulator */}
+            {/* Right Column: Flow Architecture & Terminal Simulator */}
             <div className="lg:col-span-5 space-y-5">
               {/* Architecture Steps */}
               <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08]">
                 <div className="text-xs font-semibold text-[#86868B] uppercase mb-4 flex items-center gap-1.5">
                   <Zap size={14} className="text-[#0071E3] dark:text-[#2997FF]" />
-                  <span>Архитектура потока данных</span>
+                  <span>Этапы и архитектурный пайплайн</span>
                 </div>
                 <div className="space-y-3">
                   {current.flow.map((s, idx) => (
@@ -228,7 +273,7 @@ Workers active: 16 | Proxy pool latency: 85ms
                 </div>
               </div>
 
-              {/* macOS Terminal Preview Window */}
+              {/* Terminal Preview Window */}
               <div className="rounded-2xl overflow-hidden border border-black/[0.08] dark:border-white/[0.12] bg-[#1E1E20] text-white shadow-lg">
                 {/* Window Chrome */}
                 <div className="px-4 py-3 bg-[#2A2A2E] flex items-center justify-between border-b border-white/[0.08]">
@@ -239,7 +284,7 @@ Workers active: 16 | Proxy pool latency: 85ms
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-[#A1A1A6] font-mono">
                     <Terminal size={12} />
-                    <span>production.log</span>
+                    <span>{current.id === 'sferus' ? 'sferus24.access.log' : 'console.log'}</span>
                   </div>
                   <div className="w-10" />
                 </div>
