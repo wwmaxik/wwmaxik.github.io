@@ -1,95 +1,153 @@
-import { Bot, Plug, Database } from 'lucide-react'
+import { Bot, Network, Database, Server, FileText, Sparkles, Check } from 'lucide-react'
 
 function Services() {
   const services = [
     {
       icon: Bot,
-      title: 'Telegram-боты под ключ',
-      description: 'Магазины, техподдержка, ИИ-ассистенты. Полная автоматизация бизнес-процессов в привычном мессенджере.',
-      tags: ['Node.js', 'Python', 'AI'],
+      category: 'МЕССЕНДЖЕРЫ',
+      title: 'Telegram-боты & Mini Apps',
+      description: 'Автоматизация продаж, поддержки и взаимодействия с клиентами прямо в мессенджере. От легких ботов до полноценных WebApp-приложений.',
+      features: [
+        'Прием оплаты через Telegram Stars / ЮKassa',
+        'Интеграция с LLM и базами знаний компании',
+        'Интерактивный UI каталога (Telegram Mini App)',
+        'Авторизация и роли пользователей (Admin, Manager, Client)',
+      ],
+      tech: ['Python / aiogram', 'Node.js', 'Telegram WebApp', 'Redis'],
     },
     {
-      icon: Plug,
-      title: 'API Интеграции',
-      description: 'Подключение эквайринга (ЮMoney, Robokassa), служб доставки (СДЭК) и CRM. Объединяю разрозненные системы в единое целое.',
-      tags: ['REST API', 'Webhooks', 'CRM'],
+      icon: Network,
+      category: 'ИНТЕГРАЦИИ',
+      title: 'API, Эквайринг & Логистика',
+      description: 'Связываю ваши сайты, склады и службы доставки в единый автоматизированный конвейер. Исключаю ошибки ручного переноса данных.',
+      features: [
+        'Платежные шлюзы: ЮKassa, Robokassa, ЮMoney',
+        'Автоматический вызов API СДЭК и печать накладных',
+        'Синхронизация с CRM (amoCRM, МойСклад, Битрикс24)',
+        'Идемпотентная обработка вебхуков без дублей',
+      ],
+      tech: ['REST API', 'Webhooks', 'FastAPI', 'PostgreSQL'],
     },
     {
       icon: Database,
-      title: 'Парсеры и скрипты',
-      description: 'Сбор данных, автоматизация рутины. Экономлю десятки часов ручного труда ваших сотрудников.',
-      tags: ['Node.js', 'Python', 'Selenium'],
+      category: 'ДАННЫЕ',
+      title: 'Парсеры & Мониторинг рынка',
+      description: 'Автоматический сбор информации с сайтов, маркетплейсов и сервисов. Сберегает десятки часов монотонной работы сотрудников.',
+      features: [
+        'Мониторинг изменения цен конкурентов 24/7',
+        'Парсинг номенклатур и выгрузка в Google Sheets / Excel',
+        'Обход Cloudflare / Captcha и ротация прокси',
+        'Оповещения о событиях в закрытый Telegram-канал',
+      ],
+      tech: ['Playwright', 'Scrapy', 'Headless Chrome', 'Cron Workers'],
+    },
+  ]
+
+  const guarantees = [
+    {
+      icon: Server,
+      title: 'Развертывание под ключ',
+      text: 'Настройка VPS, Nginx, Docker-контейнеров, SSL-сертификатов и автоперезапуска при сбоях.',
+    },
+    {
+      icon: FileText,
+      title: 'Белая отчетность (НПД)',
+      text: 'Работаю как самозанятый по договору. Предоставляю официальные электронные чеки для бухгалтерии.',
+    },
+    {
+      icon: Sparkles,
+      title: 'Чистый поддерживаемый код',
+      text: 'Пишу понятный код с типизацией и документацией. Никакого «костыльного» спагетти-кода.',
     },
   ]
 
   return (
-    <section id="services" className="py-24 px-4 relative bg-slate-50">
-      {/* Background blobs */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-indigo-400 bg-blob" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-purple-400 bg-blob" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section id="services" className="py-20 md:py-28 px-4 sm:px-6 relative">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title">
-            <span className="gradient-text-accent">Услуги</span>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-xs font-semibold tracking-wider uppercase text-[#0071E3] dark:text-[#2997FF] mb-2 font-mono">
+            Компетенции
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-4">
+            Решения, экономящие сотни часов рутины.
           </h2>
-          <p className="section-subtitle">
-            Решаю конкретные бизнес-задачи. Никакой воды — только работающий код.
+          <p className="text-base sm:text-lg text-[#6E6E73] dark:text-[#A1A1A6] leading-relaxed">
+            Разрабатываю надежные автономные сервисы. Каждый инструмент создается под конкретные задачи вашего бизнеса с гарантией стабильной работы.
           </p>
         </div>
 
-        {/* Services Grid - Glass cards */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="glass-card group p-6 md:p-8 hover:bg-white/60 transition-all duration-300">
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-indigo-100 flex items-center justify-center mb-5 group-hover:bg-indigo-200 transition-colors">
-                <service.icon className="text-indigo-600" size={28} />
+        {/* Core Services Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {services.map((item, idx) => (
+            <div
+              key={idx}
+              className="apple-card-interactive p-6 sm:p-8 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] flex items-center justify-center">
+                    <item.icon size={24} />
+                  </div>
+                  <span className="text-[11px] font-mono tracking-wider text-[#86868B] dark:text-[#86868B] uppercase font-semibold">
+                    {item.category}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-tight mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-[#6E6E73] dark:text-[#A1A1A6] mb-6 leading-relaxed">
+                  {item.description}
+                </p>
+
+                <ul className="space-y-2.5 mb-8" aria-label={`Возможности услуги ${item.title}`}>
+                  {item.features.map((feat, featIdx) => (
+                    <li key={featIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#1D1D1F] dark:text-[#E8E8ED]">
+                      <Check size={16} className="text-[#34C759] dark:text-[#30D158] flex-shrink-0 mt-0.5" />
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-semibold mb-3 text-slate-900 group-hover:text-indigo-600 transition-colors">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-slate-600 mb-4 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                {service.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="px-2.5 py-1 text-xs rounded-md bg-white/40 text-slate-600 border border-white/40 font-mono"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div>
+                <div className="pt-4 border-t border-black/[0.06] dark:border-white/[0.08] flex flex-wrap gap-1.5">
+                  {item.tech.map((t, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-black/[0.04] dark:bg-white/[0.06] text-[#6E6E73] dark:text-[#A1A1A6]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Advantages */}
-        <div className="mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
-          <div className="text-center p-6">
-            <div className="text-4xl mb-3">📋</div>
-            <h4 className="font-semibold text-slate-900 mb-2">По договору (НПД)</h4>
-            <p className="text-sm text-slate-600">Работаю официально как самозанятый. Без налоговых рисков для бизнеса.</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl mb-3">⚡</div>
-            <h4 className="font-semibold text-slate-900 mb-2">Скорость</h4>
-            <p className="text-sm text-slate-600">Использую ИИ-агенты в пайплайне. Рабочий MVP за сутки.</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl mb-3">🛡️</div>
-            <h4 className="font-semibold text-slate-900 mb-2">Надежность</h4>
-            <p className="text-sm text-slate-600">Сам настраиваю сервера и CI/CD. Отдаю готовый продукт.</p>
-          </div>
+        {/* Quality Standards / Secondary Guarantees */}
+        <div className="grid md:grid-cols-3 gap-4">
+          {guarantees.map((g, idx) => (
+            <div
+              key={idx}
+              className="apple-card p-5 sm:p-6 flex items-start gap-4"
+            >
+              <div className="w-10 h-10 rounded-xl bg-black/[0.04] dark:bg-white/[0.08] text-[#1D1D1F] dark:text-[#F5F5F7] flex items-center justify-center flex-shrink-0">
+                <g.icon size={20} />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-[#1D1D1F] dark:text-[#F5F5F7] mb-1">
+                  {g.title}
+                </h4>
+                <p className="text-xs text-[#6E6E73] dark:text-[#86868B] leading-relaxed">
+                  {g.text}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

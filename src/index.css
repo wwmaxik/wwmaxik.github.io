@@ -3,76 +3,112 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   body {
-    @apply bg-slate-50 text-slate-900;
-    font-family: 'Inter', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  
-  .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply px-6 py-3.5 min-h-[48px] bg-indigo-600 text-white font-semibold rounded-xl 
-           transition-all duration-300 hover:bg-indigo-700 
-           shadow-lg shadow-indigo-200/50
-           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-slate-50;
+  /* Liquid Glass functional chrome (Floating bars, pills, segment controls) */
+  .liquid-glass-nav {
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   }
-  
-  .btn-secondary {
-    @apply px-6 py-3.5 min-h-[48px] text-slate-700 font-semibold rounded-xl 
-           transition-all duration-300 hover:bg-white/60
-           focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-slate-50;
+
+  .dark .liquid-glass-nav {
+    background-color: rgba(22, 22, 24, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
-  
-  .card {
-    @apply glass-card hover:bg-white/60 transition-all duration-300;
+
+  .liquid-glass-pill {
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
   }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-4 tracking-tight text-slate-900;
+
+  .dark .liquid-glass-pill {
+    background-color: rgba(30, 30, 32, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
-  
-  .section-subtitle {
-    @apply text-slate-600 text-center mb-12 max-w-2xl mx-auto leading-relaxed;
+
+  /* Apple Cards - Content Layer uses standard opaque / semi-opaque materials */
+  .apple-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 1.25rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
-  
-  .gradient-text {
-    @apply text-indigo-600;
+
+  .dark .apple-card {
+    background-color: #1C1C1E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
-  
-  .gradient-text-accent {
-    @apply text-indigo-600;
+
+  .apple-card-interactive {
+    @apply apple-card hover:-translate-y-0.5 hover:shadow-apple-card-hover dark:hover:border-white/20;
   }
-  
-  /* Glass Card - Эффект стекла */
-  .glass-card {
-    @apply bg-white/40 backdrop-blur-md border border-white/40 
-           shadow-xl shadow-slate-200/50 rounded-2xl;
+
+  /* Apple HIG Buttons */
+  .apple-btn-primary {
+    @apply inline-flex items-center justify-center font-medium rounded-full min-h-[44px] px-6 py-2.5
+           bg-[#0071E3] hover:bg-[#0077ED] active:scale-[0.98] text-white
+           transition-all duration-150 ease-out shadow-sm
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] focus-visible:ring-offset-2
+           dark:bg-[#2997FF] dark:text-[#000000] dark:font-semibold dark:hover:bg-[#47A7FF]
+           dark:focus-visible:ring-[#2997FF] dark:focus-visible:ring-offset-[#161617];
   }
-  
-  /* Glass Card Round - для статистики */
-  .glass-card-round {
-    @apply bg-white/40 backdrop-blur-md border border-white/40 
-           shadow-xl shadow-slate-200/50 rounded-3xl;
+
+  .apple-btn-secondary {
+    @apply inline-flex items-center justify-center font-medium rounded-full min-h-[44px] px-6 py-2.5
+           bg-black/[0.04] hover:bg-black/[0.08] active:scale-[0.98] text-[#1D1D1F]
+           border border-black/[0.06] transition-all duration-150 ease-out
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] focus-visible:ring-offset-2
+           dark:bg-white/[0.08] dark:hover:bg-white/[0.14] dark:text-[#F5F5F7] dark:border-white/[0.1]
+           dark:focus-visible:ring-[#2997FF] dark:focus-visible:ring-offset-[#161617];
   }
-  
-  /* Glass Button - вторая кнопка */
-  .glass-btn {
-    @apply bg-white/40 backdrop-blur-md border border-white/40 
-           shadow-xl shadow-slate-200/50 rounded-xl;
+
+  /* Segmented Controls */
+  .apple-segment-container {
+    @apply p-1 rounded-full bg-black/[0.05] dark:bg-white/[0.08] inline-flex items-center border border-black/[0.04] dark:border-white/[0.06];
   }
-  
-  /* Background blobs */
-  .bg-blob {
-    @apply absolute rounded-full blur-[100px] opacity-20 pointer-events-none;
+
+  .apple-segment-item {
+    @apply px-4 py-1.5 text-xs md:text-sm font-medium rounded-full transition-all duration-200 select-none;
+  }
+
+  .apple-segment-active {
+    @apply bg-white dark:bg-[#2C2C2E] text-[#1D1D1F] dark:text-[#F5F5F7] shadow-sm;
+  }
+
+  .apple-segment-inactive {
+    @apply text-[#6E6E73] dark:text-[#A1A1A6] hover:text-[#1D1D1F] dark:hover:text-[#F5F5F7];
   }
 }
+
