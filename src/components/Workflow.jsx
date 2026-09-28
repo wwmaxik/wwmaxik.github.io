@@ -49,11 +49,11 @@ function Workflow() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {steps.map((s, idx) => (
             <div
               key={idx}
-              className="apple-card p-6 flex flex-col justify-between"
+              className="apple-card p-5 sm:p-6 flex flex-col justify-between min-w-0 w-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -76,7 +76,7 @@ function Workflow() {
         </div>
 
         {/* Legal & Safety Banner for Russian Businesses */}
-        <div className="apple-card p-6 sm:p-8 bg-gradient-to-r from-black/[0.02] to-transparent dark:from-white/[0.03]">
+        <div className="apple-card p-5 sm:p-8 bg-gradient-to-r from-black/[0.02] to-transparent dark:from-white/[0.03] min-w-0 w-full">
           <div className="grid md:grid-cols-12 gap-6 items-center">
             <div className="md:col-span-8 space-y-2">
               <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#34C759] dark:text-[#30D158] font-mono uppercase">

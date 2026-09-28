@@ -11,42 +11,42 @@ function Footer() {
     <footer id="contact" className="pt-20 pb-12 px-4 sm:px-6 border-t border-black/[0.06] dark:border-white/[0.08] relative">
       <div className="max-w-4xl mx-auto">
         {/* Main CTA Card */}
-        <div className="apple-card p-8 sm:p-12 text-center mb-16 relative overflow-hidden bg-gradient-to-b from-white to-[#F5F5F7] dark:from-[#1C1C1E] dark:to-[#161617]">
+        <div className="apple-card p-6 sm:p-12 text-center mb-12 sm:mb-16 relative overflow-hidden bg-gradient-to-b from-white to-[#F5F5F7] dark:from-[#1C1C1E] dark:to-[#161617] min-w-0 w-full">
           <div className="max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full liquid-glass-pill mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-medium text-[#1D1D1F] dark:text-[#F5F5F7]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full liquid-glass-pill mb-6 max-w-full">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
+              <span className="text-xs font-medium text-[#1D1D1F] dark:text-[#F5F5F7] truncate">
                 Свободен для 1 нового проекта на этой неделе
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-4">
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-4">
               Готовы запустить автоматизацию?
             </h2>
 
-            <p className="text-sm sm:text-base text-[#6E6E73] dark:text-[#A1A1A6] mb-8 leading-relaxed">
+            <p className="text-xs sm:text-base text-[#6E6E73] dark:text-[#A1A1A6] mb-8 leading-relaxed">
               Напишите мне в Telegram. Расскажите о вашей задаче своими словами — я предложу оптимальную архитектуру и назову точные сроки и стоимость уже сегодня.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
               <a
                 href="https://t.me/wwmaxik"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="apple-btn-primary w-full sm:w-auto gap-2"
+                className="apple-btn-primary w-full sm:w-auto gap-2 text-xs sm:text-sm"
                 aria-label="Написать Максиму в Telegram"
               >
-                <Send size={16} />
-                <span>Написать в Telegram @wwmaxik</span>
+                <Send size={15} className="flex-shrink-0" />
+                <span className="truncate">Написать в Telegram @wwmaxik</span>
               </a>
 
               <a
                 href="mailto:github_wwmaxik@mail.ru"
-                className="apple-btn-secondary w-full sm:w-auto gap-2"
+                className="apple-btn-secondary w-full sm:w-auto gap-2 text-xs sm:text-sm"
                 aria-label="Написать на email"
               >
-                <Mail size={16} />
-                <span>github_wwmaxik@mail.ru</span>
+                <Mail size={15} className="flex-shrink-0" />
+                <span className="truncate">github_wwmaxik@mail.ru</span>
               </a>
             </div>
           </div>

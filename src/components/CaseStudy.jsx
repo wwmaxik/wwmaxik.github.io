@@ -144,13 +144,13 @@ $ ./target/release/driftwm-settings
         </div>
 
         {/* Apple Segmented Control */}
-        <div className="flex justify-center mb-10 overflow-x-auto pb-2 scrollbar-none">
-          <div className="apple-segment-container max-w-full">
+        <div className="w-full overflow-x-auto pb-3 mb-8 no-scrollbar flex justify-start sm:justify-center px-1">
+          <div className="apple-segment-container shrink-0 inline-flex">
             {cases.map((c, idx) => (
               <button
                 key={c.id}
                 onClick={() => setActiveTab(idx)}
-                className={`apple-segment-item whitespace-nowrap ${
+                className={`apple-segment-item whitespace-nowrap px-3 sm:px-4 py-1.5 text-xs sm:text-sm ${
                   activeTab === idx ? 'apple-segment-active' : 'apple-segment-inactive'
                 }`}
                 role="tab"
@@ -163,44 +163,44 @@ $ ./target/release/driftwm-settings
         </div>
 
         {/* Case Card */}
-        <div className="apple-card p-6 sm:p-10 md:p-12 transition-all duration-300">
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="apple-card p-4 sm:p-8 md:p-12 transition-all duration-300 w-full max-w-full overflow-hidden">
+          <div className="grid lg:grid-cols-12 gap-8 items-start w-full min-w-0">
             {/* Left Column: Description & Details */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
+            <div className="lg:col-span-7 flex flex-col justify-between w-full min-w-0">
               <div>
                 <span className="text-xs font-mono font-semibold tracking-wider uppercase text-[#0071E3] dark:text-[#2997FF] mb-2 block">
                   {current.category}
                 </span>
 
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-6">
+                <h3 className="text-xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-6">
                   {current.title}
                 </h3>
 
                 {/* Problem & Solution block */}
                 <div className="space-y-4 mb-8">
-                  <div className="p-4 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.04] dark:border-white/[0.06]">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.04] dark:border-white/[0.06]">
                     <div className="text-xs font-semibold text-[#86868B] uppercase mb-1">Задача</div>
-                    <p className="text-sm text-[#1D1D1F] dark:text-[#E8E8ED] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#1D1D1F] dark:text-[#E8E8ED] leading-relaxed">
                       {current.problem}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#0071E3]/5 dark:bg-[#2997FF]/10 border border-[#0071E3]/15 dark:border-[#2997FF]/20">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-[#0071E3]/5 dark:bg-[#2997FF]/10 border border-[#0071E3]/15 dark:border-[#2997FF]/20">
                     <div className="text-xs font-semibold text-[#0071E3] dark:text-[#2997FF] uppercase mb-1">Решение</div>
-                    <p className="text-sm text-[#1D1D1F] dark:text-[#E8E8ED] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#1D1D1F] dark:text-[#E8E8ED] leading-relaxed">
                       {current.solution}
                     </p>
                   </div>
                 </div>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-3 mb-8">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 w-full">
                   {current.metrics.map((m, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] text-center">
-                      <div className="text-lg sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] font-mono mb-0.5 truncate">
+                    <div key={idx} className="p-2.5 sm:p-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] text-center min-w-0">
+                      <div className="text-sm sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] font-mono mb-0.5 truncate">
                         {m.val}
                       </div>
-                      <div className="text-[11px] text-[#86868B] dark:text-[#86868B] leading-tight">
+                      <div className="text-[10px] sm:text-[11px] text-[#86868B] dark:text-[#86868B] leading-tight truncate">
                         {m.label}
                       </div>
                     </div>
@@ -222,13 +222,13 @@ $ ./target/release/driftwm-settings
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 w-full">
                 {current.liveUrl && (
                   <a
                     href={current.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="apple-btn-primary gap-2"
+                    className="apple-btn-primary gap-2 w-full sm:w-auto"
                   >
                     <span>{current.id === 'sferus' ? 'Открыть сайт sferus24.ru' : 'Смотреть на GitHub'}</span>
                     <ExternalLink size={15} />
@@ -239,7 +239,7 @@ $ ./target/release/driftwm-settings
                   href={`https://t.me/wwmaxik?text=${encodeURIComponent(`Здравствуйте, Максим! Меня заинтересовал проект "${current.title}". Хочу обсудить аналогичную задачу.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="apple-btn-secondary gap-2"
+                  className="apple-btn-secondary gap-2 w-full sm:w-auto"
                 >
                   <span>Обсудить в Telegram</span>
                 </a>
@@ -247,9 +247,9 @@ $ ./target/release/driftwm-settings
             </div>
 
             {/* Right Column: Flow Architecture & Terminal Simulator */}
-            <div className="lg:col-span-5 space-y-5">
+            <div className="lg:col-span-5 space-y-5 w-full min-w-0">
               {/* Architecture Steps */}
-              <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08]">
+              <div className="p-4 sm:p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08] w-full min-w-0">
                 <div className="text-xs font-semibold text-[#86868B] uppercase mb-4 flex items-center gap-1.5">
                   <Zap size={14} className="text-[#0071E3] dark:text-[#2997FF]" />
                   <span>Этапы и архитектурный пайплайн</span>
@@ -260,8 +260,8 @@ $ ./target/release/driftwm-settings
                       <div className="w-5 h-5 rounded-full bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] text-xs font-mono font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
                         {s.step}
                       </div>
-                      <div>
-                        <div className="text-xs font-semibold text-[#1D1D1F] dark:text-[#F5F5F7]">
+                      <div className="min-w-0">
+                        <div className="text-xs font-semibold text-[#1D1D1F] dark:text-[#F5F5F7] truncate">
                           {s.title}
                         </div>
                         <div className="text-[11px] text-[#6E6E73] dark:text-[#86868B] leading-tight">
@@ -274,28 +274,29 @@ $ ./target/release/driftwm-settings
               </div>
 
               {/* Terminal Preview Window */}
-              <div className="rounded-2xl overflow-hidden border border-black/[0.08] dark:border-white/[0.12] bg-[#1E1E20] text-white shadow-lg">
+              <div className="rounded-2xl overflow-hidden border border-black/[0.08] dark:border-white/[0.12] bg-[#1E1E20] text-white shadow-lg w-full max-w-full min-w-0">
                 {/* Window Chrome */}
                 <div className="px-4 py-3 bg-[#2A2A2E] flex items-center justify-between border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
                     <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
                     <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-[#A1A1A6] font-mono">
-                    <Terminal size={12} />
-                    <span>{current.id === 'sferus' ? 'sferus24.access.log' : 'console.log'}</span>
+                  <div className="flex items-center gap-1.5 text-[11px] text-[#A1A1A6] font-mono truncate px-2">
+                    <Terminal size={12} className="flex-shrink-0" />
+                    <span className="truncate">{current.id === 'sferus' ? 'sferus24.access.log' : 'console.log'}</span>
                   </div>
-                  <div className="w-10" />
+                  <div className="w-10 flex-shrink-0" />
                 </div>
                 {/* Code body */}
-                <pre className="p-4 text-[11px] font-mono text-[#D2D2D7] overflow-x-auto leading-relaxed whitespace-pre selection:bg-white/20">
+                <pre className="p-3.5 sm:p-4 text-[10px] sm:text-[11px] font-mono text-[#D2D2D7] overflow-x-auto leading-relaxed whitespace-pre selection:bg-white/20 block w-full max-w-full">
                   {current.terminalSnippet}
                 </pre>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   )

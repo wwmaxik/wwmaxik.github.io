@@ -92,21 +92,22 @@ function OpenSource() {
           </a>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 w-full">
           {repos.map((r, idx) => (
             <a
               key={idx}
               href={r.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="apple-card p-5 flex flex-col justify-between hover:-translate-y-1 hover:border-[#0071E3]/40 dark:hover:border-[#2997FF]/40 transition-all duration-200 group"
+              className="apple-card p-4 sm:p-5 flex flex-col justify-between hover:-translate-y-1 hover:border-[#0071E3]/40 dark:hover:border-[#2997FF]/40 transition-all duration-200 group w-full min-w-0"
             >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-[#1D1D1F] dark:text-[#F5F5F7] group-hover:text-[#0071E3] dark:group-hover:text-[#2997FF] transition-colors truncate">
+              <div className="w-full min-w-0">
+                <div className="flex items-center justify-between mb-3 gap-2">
+                  <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-[#1D1D1F] dark:text-[#F5F5F7] group-hover:text-[#0071E3] dark:group-hover:text-[#2997FF] transition-colors truncate min-w-0">
                     <Code size={14} className="flex-shrink-0 text-[#86868B]" />
                     <span className="truncate">{r.name}</span>
                   </div>
+
                   {r.stars > 0 && (
                     <span className="flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 font-semibold flex-shrink-0">
                       <Star size={11} className="fill-amber-500" />

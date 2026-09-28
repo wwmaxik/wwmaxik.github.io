@@ -129,15 +129,15 @@ function Estimator() {
         </div>
 
         {/* Calculator Main Container */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 items-start w-full min-w-0">
           {/* Controls Column */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 w-full min-w-0">
             {/* Step 1: Project Type */}
-            <div className="apple-card p-5 sm:p-6">
+            <div className="apple-card p-4 sm:p-6 w-full min-w-0">
               <label className="text-xs font-semibold uppercase tracking-wider text-[#86868B] block mb-3 font-mono">
                 1. Направление разработки
               </label>
-              <div className="grid sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full">
                 {projectTypes.map((pt) => {
                   const isSelected = projectType === pt.id
                   return (
@@ -145,19 +145,19 @@ function Estimator() {
                       key={pt.id}
                       type="button"
                       onClick={() => setProjectType(pt.id)}
-                      className={`p-3.5 rounded-xl text-left transition-all duration-150 border ${
+                      className={`p-3.5 rounded-xl text-left transition-all duration-150 border min-w-0 ${
                         isSelected
                           ? 'border-[#0071E3] dark:border-[#2997FF] bg-[#0071E3]/5 dark:bg-[#2997FF]/10 ring-1 ring-[#0071E3] dark:ring-[#2997FF]'
                           : 'border-black/[0.06] dark:border-white/[0.08] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-1">
-                        <span className={`text-sm font-semibold ${isSelected ? 'text-[#0071E3] dark:text-[#2997FF]' : 'text-[#1D1D1F] dark:text-[#F5F5F7]'}`}>
+                      <div className="flex items-center justify-between mb-1 gap-2">
+                        <span className={`text-sm font-semibold truncate ${isSelected ? 'text-[#0071E3] dark:text-[#2997FF]' : 'text-[#1D1D1F] dark:text-[#F5F5F7]'}`}>
                           {pt.name}
                         </span>
-                        {isSelected && <CheckCircle size={15} className="text-[#0071E3] dark:text-[#2997FF]" />}
+                        {isSelected && <CheckCircle size={15} className="text-[#0071E3] dark:text-[#2997FF] flex-shrink-0" />}
                       </div>
-                      <p className="text-xs text-[#6E6E73] dark:text-[#86868B] leading-tight">
+                      <p className="text-xs text-[#6E6E73] dark:text-[#86868B] leading-tight line-clamp-2">
                         {pt.desc}
                       </p>
                     </button>
@@ -167,11 +167,11 @@ function Estimator() {
             </div>
 
             {/* Step 2: Add-ons */}
-            <div className="apple-card p-5 sm:p-6">
+            <div className="apple-card p-4 sm:p-6 w-full min-w-0">
               <label className="text-xs font-semibold uppercase tracking-wider text-[#86868B] block mb-3 font-mono">
                 2. Дополнительные модули и интеграции
               </label>
-              <div className="space-y-2">
+              <div className="space-y-2 w-full">
                 {addonsList.map((addon) => {
                   const isChecked = selectedAddons.includes(addon.id)
                   return (
@@ -179,30 +179,30 @@ function Estimator() {
                       key={addon.id}
                       type="button"
                       onClick={() => toggleAddon(addon.id)}
-                      className={`w-full p-3 rounded-xl text-left flex items-center justify-between transition-all duration-150 border ${
+                      className={`w-full p-3 rounded-xl text-left flex items-center justify-between transition-all duration-150 border min-w-0 ${
                         isChecked
                           ? 'border-[#0071E3]/40 dark:border-[#2997FF]/40 bg-[#0071E3]/5 dark:bg-[#2997FF]/10'
                           : 'border-black/[0.05] dark:border-white/[0.06] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-4 h-4 rounded flex items-center justify-center border transition-colors ${
+                      <div className="flex items-center gap-3 min-w-0 flex-1 mr-2">
+                        <div className={`w-4 h-4 rounded flex items-center justify-center border transition-colors flex-shrink-0 ${
                           isChecked
                             ? 'bg-[#0071E3] dark:bg-[#2997FF] border-[#0071E3] dark:border-[#2997FF] text-white dark:text-black'
                             : 'border-black/30 dark:border-white/30'
                         }`}>
                           {isChecked && <CheckCircle size={12} />}
                         </div>
-                        <div>
-                          <div className="text-xs sm:text-sm font-medium text-[#1D1D1F] dark:text-[#F5F5F7]">
+                        <div className="min-w-0">
+                          <div className="text-xs sm:text-sm font-medium text-[#1D1D1F] dark:text-[#F5F5F7] truncate">
                             {addon.name}
                           </div>
-                          <div className="text-[11px] text-[#86868B]">
+                          <div className="text-[11px] text-[#86868B] truncate">
                             {addon.detail}
                           </div>
                         </div>
                       </div>
-                      <div className="text-xs font-mono text-[#6E6E73] dark:text-[#A1A1A6] font-medium ml-2">
+                      <div className="text-xs font-mono text-[#6E6E73] dark:text-[#A1A1A6] font-medium flex-shrink-0">
                         +{addon.price.toLocaleString('ru-RU')} ₽
                       </div>
                     </button>
@@ -212,22 +212,22 @@ function Estimator() {
             </div>
 
             {/* Step 3: Urgency toggle */}
-            <div className="apple-card p-5 sm:p-6 flex items-center justify-between">
-              <div>
+            <div className="apple-card p-4 sm:p-6 flex items-center justify-between w-full min-w-0 gap-3">
+              <div className="min-w-0">
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#86868B] block mb-0.5 font-mono">
                   3. Режим срочности
                 </span>
-                <div className="text-sm font-medium text-[#1D1D1F] dark:text-[#F5F5F7]">
+                <div className="text-sm font-medium text-[#1D1D1F] dark:text-[#F5F5F7] truncate">
                   Срочный MVP за 24–48 часов
                 </div>
-                <div className="text-xs text-[#86868B]">
+                <div className="text-xs text-[#86868B] truncate">
                   Приоритетный слот в разработке (+25% к стоимости)
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsUrgent(prev => !prev)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] ${
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] flex-shrink-0 ${
                   isUrgent ? 'bg-[#34C759]' : 'bg-black/20 dark:bg-white/20'
                 }`}
                 role="switch"
@@ -243,25 +243,26 @@ function Estimator() {
             </div>
           </div>
 
-          {/* Sticky Summary & CTA Column */}
-          <div className="lg:col-span-5 sticky top-20">
-            <div className="apple-card p-6 sm:p-8 bg-gradient-to-b from-white to-[#F9F9FB] dark:from-[#1C1C1E] dark:to-[#161617] border border-black/[0.08] dark:border-white/[0.12] shadow-apple-card">
+          {/* Summary & CTA Column */}
+          <div className="lg:col-span-5 w-full min-w-0 relative lg:sticky lg:top-24">
+            <div className="apple-card p-5 sm:p-8 bg-gradient-to-b from-white to-[#F9F9FB] dark:from-[#1C1C1E] dark:to-[#161617] border border-black/[0.08] dark:border-white/[0.12] shadow-apple-card w-full min-w-0">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#86868B] font-mono mb-4">
-                <Calculator size={15} className="text-[#0071E3] dark:text-[#2997FF]" />
+                <Calculator size={15} className="text-[#0071E3] dark:text-[#2997FF] flex-shrink-0" />
                 <span>Итог предварительной оценки</span>
               </div>
 
               {/* Price Display */}
               <div className="mb-6 pb-6 border-b border-black/[0.06] dark:border-white/[0.08]">
                 <div className="text-xs text-[#86868B] mb-1">Ориентировочный бюджет:</div>
-                <div className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] font-mono">
+                <div className="text-2xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] font-mono">
                   от {totalPrice.toLocaleString('ru-RU')} ₽
                 </div>
                 <div className="text-xs text-[#34C759] dark:text-[#30D158] font-medium mt-1 flex items-center gap-1.5">
-                  <CheckCircle size={13} />
+                  <CheckCircle size={13} className="flex-shrink-0" />
                   <span>Чек плательщика НПД включен</span>
                 </div>
               </div>
+
 
               {/* Specs Breakdown */}
               <div className="space-y-3 mb-8">

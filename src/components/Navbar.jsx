@@ -39,25 +39,25 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 liquid-glass-nav transition-colors duration-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 h-14 md:h-16 flex items-center justify-between">
         {/* Brand */}
         <a 
           href="#" 
-          className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] rounded-lg px-1 py-0.5"
+          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] rounded-lg px-1 py-0.5 min-w-0"
           aria-label="На главную"
         >
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#0071E3] to-[#2997FF] flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform duration-200">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#0071E3] to-[#2997FF] flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
             M
           </div>
-          <div className="flex flex-col text-left">
-            <span className="text-sm font-semibold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] leading-none">
+          <div className="flex flex-col text-left min-w-0">
+            <span className="text-xs sm:text-sm font-semibold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] leading-none truncate">
               Максим Кононенко
             </span>
             <span className="text-[11px] font-mono text-[#86868B] dark:text-[#86868B] leading-tight mt-0.5">
               @wwmaxik
             </span>
           </div>
-          <span className="hidden sm:inline-flex items-center gap-1.5 ml-2 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+          <span className="hidden md:inline-flex items-center gap-1.5 ml-2 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 flex-shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             Доступен
           </span>
@@ -77,7 +77,7 @@ function Navbar() {
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
           {/* Theme Switcher */}
           <button
             onClick={toggleTheme}
@@ -87,12 +87,12 @@ function Navbar() {
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
 
-          {/* Quick Telegram Button */}
+          {/* Quick Telegram Button (desktop/tablet only) */}
           <a
             href="https://t.me/wwmaxik"
             target="_blank"
             rel="noopener noreferrer"
-            className="apple-btn-primary !px-4 !py-1.5 !min-h-[36px] text-xs font-medium gap-1.5"
+            className="hidden sm:inline-flex apple-btn-primary !px-4 !py-1.5 !min-h-[36px] text-xs font-medium gap-1.5"
             aria-label="Написать в Telegram"
           >
             <Send size={13} className="translate-y-[-0.5px]" />
@@ -110,6 +110,7 @@ function Navbar() {
           </button>
         </div>
       </div>
+
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (

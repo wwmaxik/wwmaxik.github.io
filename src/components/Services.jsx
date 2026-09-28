@@ -95,18 +95,18 @@ function Services() {
         </div>
 
         {/* Core Services Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
           {services.map((item, idx) => (
             <div
               key={idx}
-              className="apple-card-interactive p-6 sm:p-8 flex flex-col justify-between"
+              className="apple-card-interactive p-5 sm:p-8 flex flex-col justify-between min-w-0 w-full"
             >
               <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] flex items-center justify-center">
-                    <item.icon size={24} />
+                <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-3 mb-6">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] flex items-center justify-center flex-shrink-0">
+                    <item.icon size={22} className="sm:w-6 sm:h-6" />
                   </div>
-                  <span className="text-[11px] font-mono tracking-wider text-[#0071E3] dark:text-[#2997FF] uppercase font-semibold px-2.5 py-1 rounded-full bg-[#0071E3]/5 dark:bg-[#2997FF]/10">
+                  <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#0071E3] dark:text-[#2997FF] uppercase font-semibold px-2.5 py-1 rounded-full bg-[#0071E3]/5 dark:bg-[#2997FF]/10 max-w-full truncate">
                     {item.highlight}
                   </span>
                 </div>
