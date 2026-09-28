@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { Calculator, Clock, CreditCard, Send, CheckCircle, Sparkles } from 'lucide-react'
+import { Calculator, Clock, CreditCard, Send, CheckCircle, Sparkles, Globe, Bot, Cpu, ArrowLeftRight, Truck, Database, Smartphone, Server } from 'lucide-react'
 
 function Estimator() {
   const [projectType, setProjectType] = useState('web')
@@ -13,6 +13,7 @@ function Estimator() {
       basePrice: 25000,
       baseDays: 3,
       desc: 'Современный быстрый сайт под ключ (уровень sferus24.ru)',
+      icon: Globe,
     },
     {
       id: 'ai-bot',
@@ -20,6 +21,7 @@ function Estimator() {
       basePrice: 18000,
       baseDays: 2,
       desc: 'Умный бот с базой знаний компании или админ-панелью',
+      icon: Bot,
     },
     {
       id: 'integration',
@@ -27,6 +29,7 @@ function Estimator() {
       basePrice: 14000,
       baseDays: 1,
       desc: 'Автоматизация логистики, приема оплат и обмена данными',
+      icon: ArrowLeftRight,
     },
     {
       id: 'rust-sys',
@@ -34,6 +37,7 @@ function Estimator() {
       basePrice: 35000,
       baseDays: 5,
       desc: 'Высокопроизводительное ПО на чистом Rust (как driftwm-settings)',
+      icon: Cpu,
     },
   ]
 
@@ -44,6 +48,7 @@ function Estimator() {
       detail: 'ЮKassa, Robokassa или Telegram Stars',
       price: 5000,
       days: 0.5,
+      icon: CreditCard,
     },
     {
       id: 'cdek',
@@ -51,6 +56,7 @@ function Estimator() {
       detail: 'Автосоздание заказов, накладных и трек-номеров',
       price: 6000,
       days: 0.5,
+      icon: Truck,
     },
     {
       id: 'rag',
@@ -58,6 +64,7 @@ function Estimator() {
       detail: 'Поиск и консультирование по документам компании',
       price: 8000,
       days: 1,
+      icon: Database,
     },
     {
       id: 'miniapp',
@@ -65,6 +72,7 @@ function Estimator() {
       detail: 'Полноценный интерактивный веб-интерфейс внутри чата',
       price: 7000,
       days: 1,
+      icon: Smartphone,
     },
     {
       id: 'deploy',
@@ -72,6 +80,7 @@ function Estimator() {
       detail: 'Docker, Nginx, SSL, Systemd, мониторинг сбоев',
       price: 4000,
       days: 0.5,
+      icon: Server,
     },
   ]
 
@@ -151,13 +160,22 @@ function Estimator() {
                           : 'border-black/[0.06] dark:border-white/[0.08] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-1 gap-2">
-                        <span className={`text-sm font-semibold truncate ${isSelected ? 'text-[#0071E3] dark:text-[#2997FF]' : 'text-[#1D1D1F] dark:text-[#F5F5F7]'}`}>
-                          {pt.name}
-                        </span>
+                      <div className="flex items-center justify-between mb-1.5 gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
+                            isSelected
+                              ? 'bg-[#0071E3] dark:bg-[#2997FF] text-white dark:text-black'
+                              : 'bg-black/[0.04] dark:bg-white/[0.06] text-[#6E6E73] dark:text-[#A1A1A6]'
+                          }`}>
+                            <pt.icon size={13} />
+                          </div>
+                          <span className={`text-sm font-semibold truncate ${isSelected ? 'text-[#0071E3] dark:text-[#2997FF]' : 'text-[#1D1D1F] dark:text-[#F5F5F7]'}`}>
+                            {pt.name}
+                          </span>
+                        </div>
                         {isSelected && <CheckCircle size={15} className="text-[#0071E3] dark:text-[#2997FF] flex-shrink-0" />}
                       </div>
-                      <p className="text-xs text-[#6E6E73] dark:text-[#86868B] leading-tight line-clamp-2">
+                      <p className="text-xs text-[#6E6E73] dark:text-[#86868B] leading-tight line-clamp-2 pl-8">
                         {pt.desc}
                       </p>
                     </button>
@@ -185,13 +203,20 @@ function Estimator() {
                           : 'border-black/[0.05] dark:border-white/[0.06] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                       }`}
                     >
-                      <div className="flex items-center gap-3 min-w-0 flex-1 mr-2">
+                      <div className="flex items-center gap-2.5 min-w-0 flex-1 mr-2">
                         <div className={`w-4 h-4 rounded flex items-center justify-center border transition-colors flex-shrink-0 ${
                           isChecked
                             ? 'bg-[#0071E3] dark:bg-[#2997FF] border-[#0071E3] dark:border-[#2997FF] text-white dark:text-black'
                             : 'border-black/30 dark:border-white/30'
                         }`}>
                           {isChecked && <CheckCircle size={12} />}
+                        </div>
+                        <div className={`w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 transition-colors ${
+                          isChecked
+                            ? 'bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF]'
+                            : 'bg-black/[0.03] dark:bg-white/[0.05] text-[#86868B]'
+                        }`}>
+                          <addon.icon size={13} />
                         </div>
                         <div className="min-w-0">
                           <div className="text-xs sm:text-sm font-medium text-[#1D1D1F] dark:text-[#F5F5F7] truncate">

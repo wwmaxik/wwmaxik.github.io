@@ -1,4 +1,5 @@
-import { Github, Star, GitFork, ArrowUpRight, Code, Cpu } from 'lucide-react'
+import { Github, GitFork, ArrowUpRight, Code, Cpu } from 'lucide-react'
+import GitHubStarIcon from './GitHubStarIcon'
 
 function OpenSource() {
   const repos = [
@@ -110,7 +111,7 @@ function OpenSource() {
 
                   {r.stars > 0 && (
                     <span className="flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 font-semibold flex-shrink-0">
-                      <Star size={11} className="fill-amber-500" />
+                      <GitHubStarIcon className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
                       {r.stars}
                     </span>
                   )}

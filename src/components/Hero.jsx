@@ -1,4 +1,5 @@
 import { ArrowRight, Send, Github, ExternalLink, Code2, Cpu, Globe, Star } from 'lucide-react'
+import GitHubStarIcon from './GitHubStarIcon'
 
 function Hero() {
   const scrollTo = (id) => {
@@ -16,7 +17,8 @@ function Hero() {
       icon: Code2,
     },
     {
-      value: '14 ★',
+      value: '14',
+      hasStar: true,
       label: 'driftwm-settings',
       detail: 'Open-source утилита на Rust',
       icon: Star,
@@ -108,8 +110,11 @@ function Hero() {
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] flex items-center justify-center mb-2.5 sm:mb-3 flex-shrink-0">
                 <m.icon size={16} className="sm:w-[18px] sm:h-[18px]" />
               </div>
-              <div className="text-base sm:text-2xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-1 font-mono truncate">
-                {m.value}
+              <div className="text-base sm:text-2xl font-bold tracking-tight text-[#1D1D1F] dark:text-[#F5F5F7] mb-1 font-mono truncate flex items-center gap-1.5">
+                <span>{m.value}</span>
+                {m.hasStar && (
+                  <GitHubStarIcon className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-500 shrink-0 inline-block" />
+                )}
               </div>
               <div className="text-xs sm:text-sm font-semibold text-[#1D1D1F] dark:text-[#F5F5F7] leading-tight mb-1 truncate">
                 {m.label}

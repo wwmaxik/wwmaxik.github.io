@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ExternalLink, Terminal, Globe, Cpu, Bot, Zap, Star } from 'lucide-react'
+import GitHubStarIcon from './GitHubStarIcon'
 
 function CaseStudy() {
   const [activeTab, setActiveTab] = useState(0)
@@ -49,7 +50,7 @@ Cache-Control: public, max-age=31536000, immutable
       problem: 'Пользователям Wayland-композитора driftwm требовался графический центр управления без тяжелых GTK/C зависимостей и с бережным сохранением комментариев в файлах конфигурации.',
       solution: 'Создал приложение на чистом Rust и фреймворке Iced 0.13 в палитре Catppuccin Mocha. Интегрировал парсер toml_edit для сохранения комментариев и встроенную валидацию driftwm --check-config.',
       metrics: [
-        { label: 'Звёзд на GitHub', val: '14 ★' },
+        { label: 'Звёзд на GitHub', val: '14', hasStar: true },
         { label: 'Холодный старт', val: '<15 мс' },
         { label: 'Язык реализации', val: 'Pure Rust' },
       ],
@@ -197,8 +198,11 @@ $ ./target/release/driftwm-settings
                 <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 w-full">
                   {current.metrics.map((m, idx) => (
                     <div key={idx} className="p-2.5 sm:p-3.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] text-center min-w-0">
-                      <div className="text-sm sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] font-mono mb-0.5 truncate">
-                        {m.val}
+                      <div className="text-sm sm:text-2xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] font-mono mb-0.5 truncate flex items-center justify-center gap-1">
+                        <span>{m.val}</span>
+                        {m.hasStar && (
+                          <GitHubStarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 fill-amber-500 shrink-0 inline-block -mt-0.5" />
+                        )}
                       </div>
                       <div className="text-[10px] sm:text-[11px] text-[#86868B] dark:text-[#86868B] leading-tight truncate">
                         {m.label}

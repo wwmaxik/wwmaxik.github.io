@@ -1,4 +1,5 @@
 import { Globe, Bot, Cpu, Terminal, Check, Server, ShieldCheck, Sparkles } from 'lucide-react'
+import GitHubStarIcon from './GitHubStarIcon'
 
 function Services() {
   const services = [
@@ -36,13 +37,14 @@ function Services() {
       title: 'Высокопроизводительные GUI & Системные утилиты',
       description: 'Разработка легких нативных десктопных приложений без прожорливого Electron. Опыт создания интерфейсов и системного софта под Linux Wayland.',
       features: [
-        'Графические интерфейсы на Rust + Iced (driftwm-settings, 14 ★)',
+        'Графические интерфейсы на Rust + Iced (driftwm-settings, 14 звезд на GitHub)',
         'Жестовая навигация и Circle-to-Search с Gemini Vision (driftglide)',
         'Мгновенный холодный старт и потребление памяти до 20 МБ',
         'Интеграция с системными шинами IPC и протоколами Wayland',
       ],
       tech: ['Rust', 'Iced 0.13', 'Wayland', 'Linux IPC', 'Smithay'],
-      highlight: '14 ★ на GitHub: driftwm-settings',
+      highlight: 'driftwm-settings',
+      stars: 14,
     },
     {
       icon: Terminal,
@@ -106,8 +108,15 @@ function Services() {
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0071E3]/10 dark:bg-[#2997FF]/15 text-[#0071E3] dark:text-[#2997FF] flex items-center justify-center flex-shrink-0">
                     <item.icon size={22} className="sm:w-6 sm:h-6" />
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#0071E3] dark:text-[#2997FF] uppercase font-semibold px-2.5 py-1 rounded-full bg-[#0071E3]/5 dark:bg-[#2997FF]/10 max-w-full truncate">
-                    {item.highlight}
+                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono tracking-wider text-[#0071E3] dark:text-[#2997FF] uppercase font-semibold px-2.5 py-1 rounded-full bg-[#0071E3]/5 dark:bg-[#2997FF]/10 max-w-full truncate">
+                    {item.stars ? (
+                      <>
+                        <GitHubStarIcon className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
+                        <span>{item.stars} • {item.highlight}</span>
+                      </>
+                    ) : (
+                      <span>{item.highlight}</span>
+                    )}
                   </span>
                 </div>
 
